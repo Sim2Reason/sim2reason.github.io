@@ -1,0 +1,19 @@
+<description>
+A smooth table is inclined at an angle θ_1 degrees with the horizontal. There are multiple systems on this table.
+In a system called 'ComplexCollisionPlane.mass-0', a block of mass m_1 kg is placed at 1.0 m on the table. It is initially moving with a velocity of 2 m/s.
+In a system called 'ComplexCollisionPlane.sphere-1', sphere of mass m_2 kg is placed at 2.5 m on the table. It is initially moving with a velocity of -0.3 m/s.
+A wall is fixed at 0.0 m on the table.
+In a system called 'ComplexCollisionPlane.spring_mass-3', 2 blocks are placed at 3.0 and 4.0 m on the table. They have masses m_3 and m_4 Kg respectively. These blocks are connected in series by springs (which might be initially stretched or compressed) of stiffness k_1 N/m respectively. The natural length of these springs are 1.0 respectively.
+ All collisions are perfectly elastic. All bodies have dimensions of 0.1 m.
+</description>
+<question>
+What is the magnitude of the angular momentum about the COM of the sphere in the system 'sphere-1' after t seconds?
+</question>
+
+<answer>
+0.0
+</answer>
+
+<mapping>
+{'θ_1': 0, 'm_1': 2.0, 'm_2': 5, 'm_3': 1.0, 'k_1': 50.0, 'm_4': 1.0}
+</mapping>

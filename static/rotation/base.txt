@@ -1,0 +1,22 @@
+Step 1: Conservation of Angular Momentum
+L_initial = m * u * (L/2)
+L_initial = 0.1 * 5.0 * 0.1 = 0.005 kg m^2/s   <-- ERROR: Arithmetic (Should be 0.05)
+
+L_final = I_pivot * w + m * v * (L/2)
+0.005 = 0.00133 * w + 0.005 * v
+
+Step 2: Conservation of Kinetic Energy
+Since the collision is elastic, we conserve energy.
+KE_initial = 0.5 * m * u^2 = 1.25 J
+
+For the bar, we consider both rotation and translation:
+KE_bar = 0.5 * I_pivot * w^2 + 0.5 * M * v_cm^2   <-- ERROR: Double counting energy. 
+(Using I_pivot already accounts for the motion of the center of mass. Adding 0.5*M*v_cm^2 counts the kinetic energy twice.)
+
+Equation: 1.25 = 0.5*m*v^2 + [0.5*I*w^2 + 0.5*M*(w*L/2)^2]
+
+Step 3: Solve System
+Solving the quadratic equation resulting from the double-counted energy:
+The model attempts to fit the values and finds a velocity v ≈ 4.30 m/s, but associates it with the wrong option due to internal confusion.
+
+Predicted Answer: [B] 5.00 m/s (Incorrect logic/Hallucinated Match)

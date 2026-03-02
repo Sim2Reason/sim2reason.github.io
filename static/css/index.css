@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* https://stackoverflow.com/a/48175165/5487412 */
+:root {
+    /* --link-color: #3273dc; */
+    --link-color: #362FD9;
+    --accent-color: #FF1700;
+}
+
+body {
+    /* font-family: "Noto Sans", sans-serif; */
+    font-family: "Montserrat", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2rem;
+    color: black;
+}
+
+@media screen and (max-width: 1001px) {
+    body {
+        /* font-size: 1.7rem; */
+        font-size: 1rem;
+    }
+    #main-title {
+        /* font-size: 3rem !important; */
+        font-size: 1.8rem !important;
+        /* line-height: 1px; */
+        display:inline-block;
+        margin-top: -1rem;
+    }
+    .publication-authors {
+        /* font-size: 1.5rem !important; */
+        font-size: 1.175rem !important;
+    }
+    .equation-text {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+
+.publication-title {}
+
+#main-title {
+    font-weight: 700;
+    font-size: 2.1rem;
+    /* font-style: italic; */
+    /* white-space: nowrap; */
+}
+
+#sub-title {
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+
+.button {
+    font-weight: 400;
+    font-style: normal;
+}
+
+.footer .icon-link {
+    font-size: 32px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+a {
+    /* color: rgb(0, 0, 255); */
+    color: var(--link-color);
+}
+
+a:hover {
+    /* bold */
+    color: var(--accent-color) !important;
+}
+
+.method-name {
+    font-weight: 600;
+    font-style: italic;
+}
+
+
+.teaser .hero-body {
+    padding-top: 0;
+    padding-bottom: 3rem;
+}
+
+.teaser {
+    font-weight: 700;
+    font-style: normal;
+}
+
+.publication-links a {
+    text-decoration: none !important;
+    color: #4A4A4A;
+}
+
+.publication-banner {
+    max-height: parent;
+
+}
+
+.publication-banner video {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    object-fit: fit;
+}
+
+.publication-authors {
+    font-weight: 500;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {}
+
+.publication-authors a {}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+    display: inline-block;
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {}
+
+#winoground-image {
+    max-width: 100%;
+}
+
+.interpolation-panel {
+    background: #f5f5f5;
+    border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.interpolation-video-column {}
+
+.interpolation-panel .slider {
+    margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+    margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+    width: 100%;
+}
+
+#interpolation-image-wrapper img {
+    border-radius: 5px;
+}
+
+
+
+
+#tab-content div {
+    display: none;
+}
+
+#tab-content div.is-active {
+    display: block;
+}
+
+
+.progression-image {
+    width: 120% !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+}
+
+.tabs li.is-active a {
+    color: blue;
+}
+
+/* setting */
+
+#setting-video {
+    max-width: 80%;
+}
+
+#setting-video:hover {
+    cursor: pointer;
+}
+
+/* analogy */
+#analogy-video {
+    max-height: 450px !important;
+}
+
+
+/* method overview */
+
+.method-overview-wrapper>img {
+    max-width: 90% !important;
+}
+
+.method-overview-title {
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.3rem;
+}
+
+.method-overview {
+    display: none;
+}
+
+.table-container{
+    overflow-x: scroll; /* add horizontal scrollbar */
+    overflow:auto;
+    white-space: nowrap; /* keep content in a single line */
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+
+table {
+    border-collapse: separate;
+    border-spacing: 5px;
+    /* width: 100%; */
+    /* text-align: right; */
+    /* border: 1px solid #ddd; */
+    margin: 0 auto;
+}
+
+td {
+    /* enable tabular numbers */
+    font-feature-settings: 'tnum';
+    font-variant-numeric: tabular-nums;
+    text-align: center !important;
+}
+td, th {
+    padding: 0 0.25em;
+}
+
+th:first-child, td:first-child {
+    text-align: right !important;
+}
+
+.table-highlight {
+    background-color: #D2EBD8;
+}
+
+caption {
+    padding: 10px;
+    caption-side: bottom;
+    font-weight: 500;
+}
+
+/* bibtex formatting */
+/* https://www.roboleary.net/2022/01/13/copy-code-to-clipboard-blog.html */
+
+pre[class*="language-"] {
+    position: relative;
+    overflow: auto;
+
+    /* make space  */
+    margin: 5px 0;
+    padding: 1.75rem 0 1.75rem 1rem;
+    border-radius: 10px;
+}
+
+pre[class*="language-"] button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.2rem;
+    background-color: white;
+
+    /* border: ridge 2px #7b7b7c; */
+    border: ridge 2px var(--link-color);
+    border-radius: 5px;
+    text-shadow: #c4c4c4 0 0 1px;
+    color: var(--link-color);
+}
+
+pre[class*="language-"] button:hover {
+    cursor: pointer;
+    background-color: var(--link-color);
+    color: white;
+}
+
+#bibtex {
+    margin: 0 auto !important;
+    max-width: 800px !important;
+}
+
+.equation {
+    overflow-x: scroll;
+    overflow-y: hidden !important;
+    overflow: auto;
+    padding-left: -1em !important;
+}
+
+/* Style for variables found in the text like 'mass_1' */
+.qa-variable {
+    background-color: #e3effd;
+    color: #1c58ad;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 1px solid #cce0f5;
+}
+
+/* Style for the headers in the QA box */
+.qa-label {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #555;
+    margin: 0 0 0px 0;   /* kill top margin */
+    padding-bottom: 0px;
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Zoom into plots */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+.modal.is-active { display: flex; }
+.modal-background {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+}
+.modal-content { position: relative; overflow-y: auto; }
+
+/* Zoom effect for images in the modal */
+.zoomable-img {
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+.zoomable-img:active {
+    transform: scale(1.5); /* Zooms in while holding click */
+    cursor: zoom-out;
+}
+
+/* Modal background and container */
+/* Ensure the modal content can scroll when an image expands */
+.modal-content {
+    width: 95% !important;
+    max-width: 1200px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    overflow-y: auto; /* Allow vertical scroll */
+    overflow-x: hidden; /* Prevent horizontal mess */
+}
+
+/* The wrapper for each plot in the grid */
+.plot-wrapper {
+    transition: all 0.3s ease;
+    cursor: zoom-in;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* --- THE FIX: Expanded State --- */
+/* When this class is added via JS, the plot ignores the grid and takes the full row */
+.plot-wrapper.is-expanded {
+    grid-column: 1 / -1; /* Spans across all columns in the grid */
+    cursor: zoom-out;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 20;
+}
+
+.plot-wrapper.is-expanded img {
+    width: 100% !important; /* Force full width of the modal */
+    max-height: none !important; /* Allow it to be as tall as it needs to be */
+}
+
+.plot-wrapper.is-expanded .plot-label {
+    font-size: 1.2rem !important; /* Make label bigger when expanded */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Hover effect for the grid items before they are clicked */
+.plot-wrapper:not(.is-expanded):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Make images in the modal slightly interactive */
+#modal-plot-container img {
+    cursor: zoom-in;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Hover-zoom effect: when you hover, it pops out slightly. 
+   If you click and hold, it gets even bigger. */
+#modal-plot-container img:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+#modal-plot-container img:active {
+    transform: scale(1.5); /* Big zoom on click-and-hold */
+    cursor: zoom-out;
+}
+
+/* Ensure labels are readable in modal */
+#modal-plot-container div {
+    font-size: 1rem !important; /* Larger text for big screen */
+}

@@ -1,0 +1,303 @@
+% \begin{minipage}{\linewidth}
+% \begin{tcolorbox}[
+%     title={IPhO 2012 Q1},
+%     colback=white,
+%     colframe=gray!50!black,
+%     arc=3pt,
+%     boxrule=1pt,
+%     fonttitle=\sffamily\large,
+%     width=\linewidth
+% ]
+
+%     % --- QUESTION SECTION ---
+%     \begin{tcolorbox}[
+%         colback=gray!5,
+%         colframe=gray!20,
+%         coltitle=black,
+%         title={\small \textbf{QUESTION}},
+%         fontupper=\small\sffamily,
+%         boxrule=0.5pt,
+%         sharp corners,
+%         left=3pt, right=3pt, top=3pt, bottom=3pt
+%     ]
+%         A ball is thrown with a fixed initial speed v\_0 in a homogeneous gravitational field. The x-axis is horizontal, and the z-axis is vertical (opposing gravity g). 
+%         \vspace{0.5em}
+        
+%         By adjusting the launching angle, the ball can hit any target within a region defined by the parabola:
+%         z <= z\_0 - k * x\^2
+%         \vspace{0.5em}
+        
+%         You can use this fact without proving it. Find the constants z\_0 and k in terms of v\_0 and g.
+%     \end{tcolorbox}
+
+%     \vspace{0.5em}
+
+%     % --- SIDE-BY-SIDE LAYOUT ---
+%     \noindent
+%     \begin{minipage}[t]{0.49\linewidth}
+%         \vspace{0pt}
+%         % --- BASE MODEL (LEFT) ---
+%         \begin{tcolorbox}[
+%             title={\small \textbf{BASE MODEL}},
+%             colframe=blue!60!white,
+%             colback=blue!5!white,
+%             coltitle=white,
+%             fontupper=\scriptsize\ttfamily\raggedright,
+%             boxrule=0.5pt,
+%             sharp corners,
+%             left=2pt, right=2pt,
+%             width=\linewidth,
+%             nobeforeafter
+%         ]
+%             \textbf{\textcolor{blue!60!black}{Step 1:}} Write Equations of Motion\\
+%             The trajectory of a single projectile is given by:\\
+%             x = v0 * cos(theta) * t\\
+%             z = v0 * sin(theta) * t - 0.5 * g * t\^2
+%             \vspace{1em}
+            
+%             Eliminating t, we get the trajectory equation:\\
+%             z = x * tan(theta) - (g * x\^2) / (2 * v0\^2 * cos\^2(theta))
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{blue!60!black}{Step 2:}} Match Coefficients\\
+%             We compare this specific trajectory to the given boundary equation: z = z0 - k * x\^2.
+%             \vspace{0.5em}
+            
+%             To find the constants, we assume the standard case for maximums, which is theta = 45 degrees.\\
+%             - At 45 degrees, tan(theta) = 1.\\
+%             - At 45 degrees, cos\^2(theta) = 0.5.
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{blue!60!black}{Step 3:}} Solve for k\\
+%             Looking at the x\^2 term in the trajectory equation:\\
+%             Coefficient = g / (2 * v0\^2 * cos\^2(theta))\\
+%             Substitute cos\^2(45) = 0.5:\\
+%             k = g / (2 * v0\^2 * 0.5)\\
+%             k = g / v0\^2
+            
+%             % ERROR HIGHLIGHT
+%             \vspace{0.3em}
+%             \colorbox{red!15}{\parbox{\linewidth}{\textcolor{red!80!black}{\textbf{ERROR}: Assumed boundary is defined by the 45-degree path.}}}
+%             \vspace{0.3em}
+%             Advanced
+%             \textbf{Conclusion:}\\
+%             z\_0 = v\_0\^2 / (2g)\\
+%             k = g / v\_0\^2
+%             \vspace{1em}
+            
+%             \textbf{Predicted Answer: z\_0 = v\_0\^2/2g, k = g/v\_0\^2  (Incorrect k)}
+%         \end{tcolorbox}
+%     \end{minipage}%
+%     \hfill
+%     \begin{minipage}[t]{0.49\linewidth}
+%         \vspace{0pt}
+%         % --- RL-FINETUNED MODEL (RIGHT) ---
+%         \begin{tcolorbox}[
+%             title={\small \textbf{RL-FINETUNED MODEL}},
+%             colframe=green!50!black,
+%             colback=green!5!white,
+%             coltitle=white,
+%             fontupper=\scriptsize\ttfamily\raggedright,
+%             boxrule=0.5pt,
+%             sharp corners,
+%             left=2pt, right=2pt,
+%             width=\linewidth,
+%             nobeforeafter
+%         ]
+%             \textbf{\textcolor{green!40!black}{Step 1:}} Analyze the Physical Meaning\\
+%             The equation z = z\_0 - k * x\^2 represents the "Envelope of Safety"—the outer boundary of all possible trajectories. We are not looking for one specific path, but the limits of all paths.
+%             \vspace{0.5em}
+            
+%             We can find the constants by identifying two critical edge cases on this boundary:\\
+%             1. The maximum possible height (z\_max) where x = 0.\\
+%             2. The maximum possible range (x\_max) where z = 0.
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{green!40!black}{Step 2:}} Find z\_0 (The Peak)\\
+%             The maximum height is achieved by throwing the ball straight up (theta = 90).\\
+%             Using energy conservation (mgh = 1/2 mv\^2):\\
+%             z\_0 = v\_0\^2 / (2g)
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{green!40!black}{Step 3:}} Find k (The Width)\\
+%             The boundary touches the ground (z = 0) at the maximum possible range.\\
+%             We know max range occurs at 45 degrees:\\
+%             x\_max = v\_0\^2 / g
+%             \vspace{0.5em}
+            
+%             Now, substitute this point (z=0, x = v\_0\^2/g) into the boundary equation:\\
+%             0 = z\_0 - k * (x\_max)\^2\\
+%             0 = (v\_0\^2 / 2g) - k * (v\_0\^2 / g)\^2
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{green!40!black}{Step 4:}} Solve for k\\
+%             k * (v\_0\^4 / g\^2) = v\_0\^2 / (2g)\\
+%             k = (v\_0\^2 / 2g) * (g\^2 / v\_0\^4)\\
+%             k = g / (2 * v\_0\^2)
+%             \vspace{1em}
+            
+%             \textbf{Conclusion:}\\
+%             z\_0 = v\_0\^2 / (2g)\\
+%             k = g / (2 * v\_0\^2)
+%             \vspace{1em}
+            
+%             \textbf{Predicted Answer: z\_0 = v\_0\^2/2g, k = g/2v\_0\^2  (Correct)}
+%         \end{tcolorbox}
+%     \end{minipage}
+
+% \end{tcolorbox}
+% \captionof{figure}{\textbf{LLM answers before (left) and after (right) RL finetuning.} Question adapted from IPhO 2012 Question 1 ``Focus on sketches''.}
+%     \label{fig:ipho_2012_q1}
+% \end{minipage}
+
+\begin{minipage}{\linewidth}
+\begin{tcolorbox}[
+    title={IPhO 2012 Q1},
+    colback=white,
+    colframe=gray!50!black,
+    arc=3pt,
+    boxrule=1pt,
+    fonttitle=\sffamily\large,
+    width=\linewidth
+]
+
+    % --- QUESTION SECTION ---
+    \begin{tcolorbox}[
+        colback=gray!5,
+        colframe=gray!20,
+        coltitle=black,
+        title={\small \textbf{QUESTION}},
+        fontupper=\small\sffamily,
+        boxrule=0.5pt,
+        sharp corners,
+        left=3pt, right=3pt, top=3pt, bottom=3pt
+    ]
+        A ball is thrown with a fixed initial speed $v_0$ in a homogeneous gravitational field. The x-axis is horizontal, and the z-axis is vertical (opposing gravity $g$). 
+        \vspace{0.5em}
+        
+        By adjusting the launching angle, the ball can hit any target within a region defined by the parabola:
+        $z \leq z_0 - k x^2$
+        \vspace{0.5em}
+        
+        You can use this fact without proving it. Find the constants $z_0$ and $k$ in terms of $v_0$ and $g$.
+    \end{tcolorbox}
+
+    \vspace{0.5em}
+
+    % --- SIDE-BY-SIDE LAYOUT ---
+    \noindent
+    \begin{minipage}[t]{0.49\linewidth}
+        \vspace{0pt}
+        % --- BASE MODEL (LEFT) ---
+        \begin{tcolorbox}[
+            title={\small \textbf{BASE MODEL}},
+            colframe=blue!60!white,
+            colback=blue!5!white,
+            coltitle=white,
+            fontupper=\small\ttfamily\raggedright,
+            boxrule=0.5pt,
+            sharp corners,
+            left=2pt, right=2pt,
+            width=\linewidth,
+            nobeforeafter
+        ]
+            \textbf{\textcolor{blue!60!black}{Step 1:}} Write Equations of Motion\\
+            The trajectory of a single projectile is given by:\\
+            $x = v_0 \cos(\theta) t$\\
+            $z = v_0 \sin(\theta) t - \frac{1}{2} g t^2$
+            \vspace{1em}
+            
+            Eliminating $t$, we get the trajectory equation:\\
+            $z = x \tan(\theta) - \frac{g x^2}{2 v_0^2 \cos^2(\theta)}$
+            \vspace{1em}
+            
+            \textbf{\textcolor{blue!60!black}{Step 2:}} Match Coefficients\\
+            We compare this specific trajectory to the given boundary equation: $z = z_0 - k x^2$.
+            \vspace{0.5em}
+            
+            To find the constants, we assume the standard case for maximums, which is $\theta = 45^\circ$.\\
+            - At 45 degrees, $\tan(\theta) = 1$.\\
+            - At 45 degrees, $\cos^2(\theta) = 0.5$.
+            \vspace{1em}
+            
+            \textbf{\textcolor{blue!60!black}{Step 3:}} Solve for $k$\\
+            Looking at the $x^2$ term in the trajectory equation:\\
+            Coefficient $= \frac{g}{2 v_0^2 \cos^2(\theta)}$\\
+            Substitute $\cos^2(45) = 0.5$:\\
+            $k = \frac{g}{2 v_0^2 \cdot 0.5}$\\
+            $k = g / v_0^2$
+            
+            % ERROR HIGHLIGHT
+            \vspace{0.3em}
+            \colorbox{red!15}{\parbox{\linewidth}{\textcolor{red!80!black}{\textbf{ERROR}: Assumed boundary is defined by the 45-degree path.}}}
+            \vspace{0.3em}
+            
+            \textbf{Conclusion:}\\
+            $z_0 = v_0^2 / (2g)$\\
+            $k = g / v_0^2$
+            \vspace{1em}
+            
+            \textbf{Predicted Answer: $z_0 = v_0^2/2g, k = g/v_0^2$ (Incorrect k)}
+        \end{tcolorbox}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \vspace{0pt}
+        % --- RL-FINETUNED MODEL (RIGHT) ---
+        \begin{tcolorbox}[
+            title={\small \textbf{RL-FINETUNED MODEL}},
+            colframe=green!50!black,
+            colback=green!5!white,
+            coltitle=white,
+            fontupper=\small\ttfamily\raggedright,
+            boxrule=0.5pt,
+            sharp corners,
+            left=2pt, right=2pt,
+            width=\linewidth,
+            nobeforeafter
+        ]
+            \textbf{\textcolor{green!40!black}{Step 1:}} Analyze the Physical Meaning\\
+            The equation $z = z_0 - k x^2$ represents the "Envelope of Safety"—the outer boundary of all possible trajectories. We are not looking for one specific path, but the limits of all paths.
+            \vspace{0.5em}
+            
+            We can find the constants by identifying two critical edge cases on this boundary:\\
+            1. The maximum possible height ($z_{\max}$) where $x = 0$.\\
+            2. The maximum possible range ($x_{\max}$) where $z = 0$.
+            \vspace{1em}
+            
+            \textbf{\textcolor{green!40!black}{Step 2:}} Find $z_0$ (The Peak)\\
+            The maximum height is achieved by throwing the ball straight up ($\theta = 90^\circ$).\\
+            Using energy conservation ($mgh = \frac{1}{2} mv^2$):\\
+            $z_0 = v_0^2 / (2g)$
+            \vspace{1em}
+            
+            \textbf{\textcolor{green!40!black}{Step 3:}} Find $k$ (The Width)\\
+            The boundary touches the ground ($z = 0$) at the maximum possible range.\\
+            We know max range occurs at 45 degrees:\\
+            $x_{\max} = v_0^2 / g$
+            \vspace{0.5em}
+            
+            Now, substitute this point ($z=0, x = v_0^2/g$) into the boundary equation:\\
+            $0 = z_0 - k x_{\max}^2$\\
+            $0 = \frac{v_0^2}{2g} - k (\frac{v_0^2}{g})^2$
+            \vspace{1em}
+            
+            \textbf{\textcolor{green!40!black}{Step 4:}} Solve for $k$\\
+            $k \frac{v_0^4}{g^2} = \frac{v_0^2}{2g}$\\
+            $k = \frac{v_0^2}{2g} \cdot \frac{g^2}{v_0^4}$\\
+            $k = \frac{g}{2 v_0^2}$
+            \vspace{1em}
+            
+            \textbf{Conclusion:}\\
+            $z_0 = v_0^2 / (2g)$\\
+            $k = g / (2 v_0^2)$
+            \vspace{1em}
+            
+            \textbf{Predicted Answer: $z_0 = v_0^2/2g, k = g/2v_0^2$ (Correct)}
+        \end{tcolorbox}
+    \end{minipage}
+
+\end{tcolorbox}
+\captionof{figure}{\textbf{LLM answers before (left) and after (right) RL finetuning.} Question adapted from IPhO 2012 Question 1 ``Focus on sketches''.}
+    \label{fig:ipho_2012_q1}
+\end{minipage}

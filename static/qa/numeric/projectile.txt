@@ -1,0 +1,10 @@
+<description>
+In a setup, a ball of mass 6.0 kg is thrown upward at an angle of 80 degrees with the horizontal. The ball is launched from an initial height of 0 m from the ground and it has an initial speed of 10 m/s. Assume that horizontal is +ve x axis and verticaly upwards in +ve y axis. The coefficient of restitution between the ball and the ground is 0.8.
+</description>
+<question>
+What is the net kinetic energy (rotation if any + linear) of the ball after 3.28 seconds?
+</question>
+
+<answer>
+23.352906167267456
+</answer>

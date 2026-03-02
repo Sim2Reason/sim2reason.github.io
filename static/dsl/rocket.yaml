@@ -1,0 +1,18 @@
+scene: 
+  name: rocket
+  tag: IPhORocket
+  entities:
+    - name: idk
+      type: RocketEntity
+      parameters:
+        dm_dt: 0.025
+        min_mass: 0.06
+        planet_mass: 100
+        planet_radius: 0.1
+        rocket_mass: 0.1
+        v_exhaust: 27.5
+        launch_angle: 0
+      position:
+      - 0
+      - 0
+      - 0

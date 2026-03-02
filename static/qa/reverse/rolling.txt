@@ -1,0 +1,10 @@
+<description>
+A smooth plane is tilted by 0° around its local y-axis relative to the horizontal. A bowl (spherical cap cut from a sphere at arbitrary height (h <= 2r)) sits on it and is then rotated by 60° about that same y-axis so its bottom just touches the plane. It has a radius of x m. The cutout plane is at a height of 0.11 m from the center. It is placed so its curved surface just touches the plane.
+</description>
+<question>
+What is the value of x given that the moment of inertia about axis passing through COM, parallel to z axis of the bowl in the system? after 8.27 seconds is 0.03?
+</question>
+
+<answer>
+0.27
+</answer>

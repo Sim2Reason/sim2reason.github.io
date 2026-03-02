@@ -1,0 +1,10 @@
+<description>
+In a setup, a ball of mass 6.0 kg is thrown upward at an angle of 80 degrees with the horizontal. The ball is launched from an initial height of 0 m from the ground and it has an initial speed of 10 m/s. Assume that horizontal is +ve x axis and verticaly upwards in +ve y axis. The coefficient of restitution between the ball and the ground is x.
+</description>
+<question>
+What is the value of x given that the magnitude of the linear momentum of COM of the ball after 5.78 seconds is 42.24?
+</question>
+
+<answer>
+0.8
+</answer>

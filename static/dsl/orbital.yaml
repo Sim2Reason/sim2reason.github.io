@@ -1,0 +1,39 @@
+scene:
+  name: orbital
+  tag: IPhOOrbitalMotion
+  entities:
+  - name: solarsystementity_0
+    type: SolarSystemEntity
+    position:
+    - 0.0
+    - 0.0
+    - 0.0
+    parameters:
+      star_mass: 4.55
+      star_radius: 0.98
+      planets:
+      - mass: 0.2
+        radius: 0.05
+        position:
+        - -0.05
+        - 1.42
+        velocity:
+        - -6.07
+        - -0.2
+      - mass: 0.39
+        radius: 0.1
+        position:
+        - 0.81
+        - 1.5
+        velocity:
+        - -4.92
+        - 2.64
+      - mass: 0.21
+        radius: 0.1
+        position:
+        - -2.11
+        - 0.44
+        velocity:
+        - -0.98
+        - -4.69
+  connections: []

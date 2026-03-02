@@ -1,0 +1,18 @@
+Calculate the dimensionless coefficient \xi for the power \mathcal{P} emitted in gravitational waves by a binary system.
+
+Formula:
+\mathcal{P} = \frac{G}{5 c^{5}} \sum_{i,j} \left(\frac{\mathrm{d}^{3} Q_{i j}}{\mathrm{d} t^{3}}\right)^2 = \xi \frac{G}{c^5} \mu^2 L^4 \Omega^6
+
+Given Quadrupole Moments (where k = 2\Omega):
+Q_{ii} = \frac{\mu L^2}{2} (a_i + b_i \cos kt)
+Q_{ij} = \frac{\mu L^2}{2} c_{ij} \sin kt  (for i \neq j)
+
+Parameters:
+b_1 = 1, b_2 = -1, b_3 = 0
+c_{12} = c_{21} = 1 (others 0)
+
+The value of \xi is:
+[A] 1.6
+[B] 3.2
+[C] 6.4
+[D] 12.8

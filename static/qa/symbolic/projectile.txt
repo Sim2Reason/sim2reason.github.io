@@ -1,0 +1,14 @@
+<description>
+In a setup, a ball of mass m_1 kg is thrown upward at an angle of θ_1 degrees with the horizontal. The ball is launched from an initial height of y_1 m from the ground and it has an initial speed of vx_1 m/s. Assume that horizontal is +ve x axis and verticaly upwards in +ve y axis. The coefficient of restitution between the ball and the ground is e_1.
+</description>
+<question>
+What is the magnitude of the velocity of the ball after t seconds?
+</question>
+
+<answer>
+3.1557646652909592
+</answer>
+
+<mapping>
+{'m_1': 6.0, 'y_1': 0, 'θ_1': 80, 'vx_1': 10, 'e_1': 0.8}
+</mapping>

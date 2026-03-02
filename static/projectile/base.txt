@@ -1,0 +1,27 @@
+Step 1: Write Equations of Motion
+The trajectory of a single projectile is given by:
+x = v0 * cos(theta) * t
+z = v0 * sin(theta) * t - 0.5 * g * t^2
+
+Eliminating t, we get the trajectory equation:
+z = x * tan(theta) - (g * x^2) / (2 * v0^2 * cos^2(theta))
+
+Step 2: Match Coefficients
+We compare this specific trajectory to the given boundary equation: z = z0 - k * x^2.
+
+To find the constants, we assume the standard case for maximums, which is theta = 45 degrees.
+- At 45 degrees, tan(theta) = 1.
+- At 45 degrees, cos^2(theta) = 0.5.
+
+Step 3: Solve for k
+Looking at the x^2 term in the trajectory equation:
+Coefficient = g / (2 * v0^2 * cos^2(theta))
+Substitute cos^2(45) = 0.5:
+k = g / (2 * v0^2 * 0.5)
+k = g / v0^2   <-- ERROR: Assumed boundary is defined by the 45-degree path.
+
+Conclusion:
+z_0 = v_0^2 / (2g)
+k = g / v_0^2
+
+Predicted Answer: z_0 = v_0^2/2g, k = g/v_0^2  (Incorrect k)

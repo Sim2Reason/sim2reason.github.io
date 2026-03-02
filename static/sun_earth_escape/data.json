@@ -1,0 +1,38 @@
+{
+  "title": "JEE Advanced 2017 Paper 2",
+  "question": "A rocket is launched **normal to the surface of the Earth**, away from the Sun, along the line joining the Sun and the Earth.\n\n**Given:**\n- Mass of Sun = 300,000 × Mass of Earth\n- Distance = 25,000 × Radius of Earth\n- Escape Velocity from Earth = 11.2 km/s\n\nThe **minimum initial velocity** $v_S$ required for the rocket to leave the Sun-Earth system is closest to:\n\n**(A)** 22 km/s &emsp; **(B)** 42 km/s &emsp; **(C)** 62 km/s &emsp; **(D)** 72 km/s",
+  "base": [
+    {
+      "type": "step",
+      "label": "Step 1: Escape velocity from Sun",
+      "text": "Using M_Sun = 3×10⁵ M_E and d = 2.5×10⁴ R_E:\n$$v_{\\rm sun} = \\sqrt{\\frac{2GM_{\\rm sun}}{d}} \\approx 54.78\\text{ km/s}$$"
+    },
+    {
+      "type": "error",
+      "label": "Step 2: Total velocity — LINEAR ADDITION ✗",
+      "text": "To escape both bodies, the model simply adds the two velocities:\n$$v_{\\rm total} = v_{\\rm earth} + v_{\\rm sun} = 11.2 + 54.78 \\approx 65.98\\text{ km/s}$$\nThis treats the two gravitational potentials as independent additive quantities, which is **physically wrong** — gravitational energies add, not speeds."
+    },
+    {
+      "type": "wrong",
+      "label": "Answer: (C) 62 km/s ✗",
+      "text": "The linear sum ~66 km/s is closest to (C), but the reasoning is flawed."
+    }
+  ],
+  "rl": [
+    {
+      "type": "step",
+      "label": "Step 1: Recognize the correct physics",
+      "text": "To escape both Earth and Sun, the rocket must overcome **both gravitational potential wells simultaneously**. Gravitational potential energy is a scalar — they add directly in energy, not velocity."
+    },
+    {
+      "type": "step",
+      "label": "Step 2: Velocities add in quadrature",
+      "text": "Since energies add: $v_{\\rm total} = \\sqrt{v_{\\rm sun}^2 + v_{\\rm earth}^2}$\n\nSince $v_{\\rm sun} \\approx 42\\text{ km/s} \\gg v_{\\rm earth} = 11.2\\text{ km/s}$, the result is dominated by the Sun:\n$$v_{\\rm total} \\approx 42\\text{ km/s}$$"
+    },
+    {
+      "type": "correct",
+      "label": "Answer: (B) 42 km/s ✓",
+      "text": "The minimum escape velocity is dictated by the Sun's gravity well, and energies add in quadrature."
+    }
+  ]
+}

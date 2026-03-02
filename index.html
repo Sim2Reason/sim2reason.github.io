@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta charset="utf-8">
+    <meta property="og:title" content="Solving Physics Olympiad via Reinforcement Learning on Physics Simulators" />
+    <meta property="og:description" content="A recipe to convert simulators into scalable data generators." />
+    <meta property="og:url" content="https://sim2reason.github.io" />
+    <meta property="og:image" content="https://sim2reason.github.io/static/images/preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="628" />
+    <meta name="description" content="A recipe to convert simulators into scalable data generators." />
+    <meta name="keywords" content="llm reasoning, sim-to-real, reinforcement learning, ai4science, simulators" />
+    <meta name="viewport" content="initial-scale=1" />
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Solving Physics Olympiad via Reinforcement Learning on Physics Simulators" />
+    <meta name="twitter:description" content="A recipe to convert simulators into scalable data generators." />
+    <meta name="twitter:url" content="https://sim2reason.github.io" />
+    <meta name="twitter:image" content="https://sim2reason.github.io/static/images/preview.png" />
+    <meta name="twitter:image:src" content="https://sim2reason.github.io/static/images/preview.png" />
+    <meta name="twitter:image_alt"
+        content="Solving Physics Olympiad via Reinforcement Learning on Physics Simulators" />
+
+    <title>Solving Physics Olympiad via Reinforcement Learning on Physics Simulators</title>
+
+    <!-- Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <!-- Add support specifically for YAML -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RYWGEJGP6S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-RYWGEJGP6S');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="stylesheet" href="https://use.typekit.net/iag3ven.css">
+
+    <link rel="stylesheet" href="./static/css/prism.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs-bibtex@2.0.1/prism-bibtex.min.js">
+    </script>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔄</text></svg>">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+
+    <style>
+        /* Mobile-specific styles */
+        @media screen and (max-width: 768px) {
+            .title.is-1 {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .publication-authors {
+                font-size: 0.9rem !important;
+                line-height: 1.8 !important;
+                padding: 0 1rem !important;
+                margin-bottom: 1rem !important;
+                text-align: center !important;
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 0.5rem 1rem !important;
+            }
+
+            .author-block {
+                display: inline-block !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+                flex: 0 0 auto !important;
+            }
+
+            .publication-authors .author-block:not(:last-child):after {
+                content: "";
+            }
+
+            .hero-body {
+                padding: 2rem 0.5rem !important;
+            }
+
+            .container.is-max-desktop {
+                padding: 0 1rem !important;
+            }
+
+            .buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 1rem !important;
+            }
+
+            .button {
+                margin: 0.25rem !important;
+                font-size: 0.9rem !important;
+            }
+
+            .columns.is-centered {
+                margin: 0 !important;
+            }
+
+            .column.is-half {
+                padding: 0.5rem !important;
+            }
+
+            .column.is-three-fourths {
+                padding: 0.5rem !important;
+            }
+
+            .method-overview-text p {
+                font-size: 0.95rem;
+            }
+
+            figure img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .table-container {
+                font-size: 0.8rem;
+            }
+
+            .table th,
+            .table td {
+                padding: 0.5rem 0.25rem !important;
+                font-size: 0.75rem !important;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .title.is-1 {
+                font-size: 1.5rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .publication-authors {
+                font-size: 0.8rem !important;
+                line-height: 1.8 !important;
+                padding: 0 0.5rem !important;
+                gap: 0.3rem 0.8rem !important;
+            }
+
+            .hero-body {
+                padding: 1.5rem 0.25rem !important;
+            }
+
+            .container.is-max-desktop {
+                padding: 0 0.5rem !important;
+            }
+
+            .section {
+                padding: 1.5rem 0;
+            }
+
+            .button {
+                font-size: 0.8rem !important;
+                padding: 0.5rem 0.75rem !important;
+            }
+        }
+    </style>
+
+    <!-- mathjax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+
+</head>
+
+<body>
+    <!-- DEBUG: JS error overlay (remove after diagnosis) -->
+    <div id="js-error-banner"
+        style="display:none; position:fixed; top:0; left:0; right:0; z-index:99999; background:#ff4444; color:white; font-family:monospace; font-size:13px; padding:8px 16px; white-space:pre-wrap;">
+    </div>
+    <script>
+        window.onerror = function (msg, src, line, col, err) {
+            var b = document.getElementById('js-error-banner');
+            if (b) { b.style.display = 'block'; b.textContent = '🛑 JS ERROR: ' + msg + '\n  at ' + src + ':' + line + ':' + col; }
+        };
+    </script>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-centered">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <p style="padding: 20px;" />
+                        <h1 class="title is-1 publication-title">
+                            <span id="main-title">
+                                Solving Physics Olympiad via Reinforcement Learning on Physics Simulators
+                            </span>
+                        </h1>
+
+                        <!-- Authors -->
+                        <p style="margin-top: 1rem; font-size: 1.1rem; line-height: 1.9;">
+                            <a href="https://sim2reason.github.io" target="_blank">Mihir
+                                Prabhudesai</a><sup>*^</sup>&ensp;
+                            <a href="https://sim2reason.github.io" target="_blank">Aryan Satpathy</a><sup>*^</sup>&ensp;
+                            <a href="https://sim2reason.github.io" target="_blank">Yangmin Li</a><sup>*</sup>&ensp;
+                            <a href="https://sim2reason.github.io" target="_blank">Zheyang Qin</a><sup>*</sup>&ensp;
+                            <a href="https://sim2reason.github.io" target="_blank">Nikash Bhardwaj</a>&ensp;
+                            <a href="https://sim2reason.github.io" target="_blank">Amir Zadeh</a><sup>λ</sup>&ensp;
+                            <a href="https://sim2reason.github.io" target="_blank">Chuan Li</a><sup>λ</sup>&ensp;
+                            <a href="https://sim2reason.github.io" target="_blank">Katerina Fragkiadaki</a>&ensp;
+                            <a href="https://sim2reason.github.io" target="_blank">Deepak Pathak</a>
+                        </p>
+
+                        <!-- Affiliations & legend -->
+                        <p style="margin-top: 0.4rem; font-size: 0.92rem; color: #555; line-height: 1.7;">
+                            Carnegie Mellon University &ensp;&middot;&ensp; <sup>λ</sup> Lambda
+                            <br>
+                            <span style="font-size: 0.82rem; color: #888;">
+                                <sup>^</sup> Project co-leads &ensp;·&ensp; <sup>*</sup> Core contributors
+                            </span>
+                        </p>
+
+                        <!-- Link buttons -->
+                        <div class="buttons is-centered" style="margin-top: 1.2rem; gap: 0.5rem; flex-wrap: wrap;">
+                            <!-- PDF -->
+                            <a class="button is-dark is-rounded" href="./static/docs/physics_rl.pdf" target="_blank">
+                                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                                <span>Paper</span>
+                            </a>
+                            <!-- arXiv -->
+                            <a class="button is-dark is-rounded" href="https://sim2reason.github.io" target="_blank">
+                                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                                <span>arXiv <span style="opacity:.7; font-size:.82em;">(coming soon)</span></span>
+                            </a>
+                            <!-- Twitter / X -->
+                            <a class="button is-dark is-rounded" href="https://sim2reason.github.io" target="_blank">
+                                <span class="icon"
+                                    style="font-weight:900; font-size:1rem; font-family:sans-serif;">𝕏</span>
+                                <span>Twitter <span style="opacity:.7; font-size:.82em;">(coming soon)</span></span>
+                            </a>
+                            <!-- Code -->
+                            <a class="button is-dark is-rounded" href="https://sim2reason.github.io" target="_blank">
+                                <span class="icon"><i class="fab fa-github"></i></span>
+                                <span>Code <span style="opacity:.7; font-size:.82em;">(coming soon)</span></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Teaser: 4-video grid -->
+    <style>
+        .teaser-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-top: -0.5rem;
+        }
+
+        .teaser-grid video {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.13);
+            background: #111;
+        }
+
+        .teaser-video-wrap {
+            position: relative;
+        }
+
+
+
+        @media screen and (max-width: 600px) {
+            .teaser-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <div class="container is-max-widescreen" style="margin-top: -1.25rem; padding: 0 1rem;">
+        <div class="teaser-grid">
+            <div class="teaser-video-wrap">
+                <video autoplay loop muted playsinline>
+                    <source src="./static/videos/bowling_primitives.mp4" type="video/mp4">
+                </video>
+
+            </div>
+            <div class="teaser-video-wrap">
+                <video autoplay loop muted playsinline>
+                    <source src="./static/videos/catapult_epic_launch.mp4" type="video/mp4">
+                </video>
+
+            </div>
+            <div class="teaser-video-wrap">
+                <video autoplay loop muted playsinline>
+                    <source src="./static/videos/chain_reaction_cinematic.mp4" type="video/mp4">
+                </video>
+
+            </div>
+            <div class="teaser-video-wrap">
+                <video autoplay loop muted playsinline>
+                    <source src="./static/videos/marble_spring.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="columns is-centered has-text-centered">
+                <div class="column" style="border-radius: 10px; background-color: rgb(255,255,255)">
+
+                    <p style="padding: 10px;"></p>
+
+                    <!-- Figure Content -->
+                    <div class="columns is-vcentered is-centered">
+
+                        <!-- Left Side: DSL Code Box (Mimicking tcolorbox) -->
+                        <div class="column is-half has-text-left">
+                            <div style="border: 1px solid #dbdbdb; border-radius: 5px; overflow: hidden;">
+                                <!-- Box Title -->
+                                <div
+                                    style="background-color: #4a4a4a; color: white; padding: 5px 10px; font-weight: bold; font-size: 0.9em;">
+                                    DSL
+                                </div>
+                                <!-- Code Content -->
+                                <div style="background-color: #f5f5f5; padding: 10px;">
+                                    <pre
+                                        style="background: transparent; padding: 0; font-size: 0.8em; overflow-x: auto; color: #333; line-height: 1.4;"><code><span style="color: #800000; font-weight: bold;">scene</span>:
+    <span style="color: #800000; font-weight: bold;">name</span>: <span style="color: #008000;">"Fixed Pulley System..."</span>
+    <span style="color: #800000; font-weight: bold;">entities</span>:
+        - <span style="color: #800000; font-weight: bold;">name</span>: <span style="color: #008000;">"fixed_pulley_start"</span>
+            <span style="color: #800000; font-weight: bold;">type</span>: <span style="color: #008000;">"MassWithFixedPulley"</span>
+            <span style="color: #999;">...</span>
+        - <span style="color: #999;">...</span>
+    <span style="color: #800000; font-weight: bold;">connections</span>:
+        - <span style="color: #800000; font-weight: bold;">entity</span>: <span style="color: #008000;">"fixed_pulley_start"</span><span style="color: #999;">...</span>
+        - <span style="color: #999;">...</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Simulation Image -->
+                        <div class="column is-half">
+                            <img src="./static/images/scene_example.png" alt="Generated simulation scene"
+                                style="width: 85%; border-radius: 5px; object-fit: contain;" />
+                        </div>
+                    </div>
+                    <!--/ Figure Content -->
+
+                    <!-- Caption -->
+                    <div class="content has-text-centered">
+                        <p>
+                            <strong>Figure 1:</strong> Scene graph YAML and generated simulation scene.
+                        </p>
+                    </div>
+
+                    <p style="padding: 10px;" />
+
+                    <div class="method-overview-text has-text-justified">
+                        <p>
+                            We present a method for turning physics simulators into scalable generators of
+                            question–answer pairs, removing the need for manual annotation. The core idea is
+                            to <strong>structure the randomization with a domain-specific language (DSL)</strong>
+                            and use it to procedurally generate reasoning problems with known answers, as
+                            illustrated in the mechanics example above.
+                        </p>
+
+                        <p>
+                            The approach is not limited to mechanics: any domain with a reliable simulator—such
+                            as fluid dynamics or robotics—can use the same <strong>recipe</strong> to produce data
+                            at low cost.
+                        </p>
+
+                        <p>
+                            Unlike static, hand-curated datasets, this recipe scales with model capability.
+                            Stronger models can design better DSL, which in turn generate more diverse
+                            and challenging data for learning. Because correctness is enforced by the simulator
+                            rather than human annotators, the required supervision is weak and inexpensive.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ Method Overview -->
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-three-quarters">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We have witnessed remarkable advances in LLM reasoning capabilities with the advent of
+                            DeepSeek-R1. However, much of this progress has been fueled by the abundance of internet
+                            question–answer (QA) pairs—a major bottleneck going forward, since such data is limited in
+                            scale and concentrated mainly in domains like mathematics. In contrast, other sciences such
+                            as physics lack sufficient large-scale QA datasets to effectively train reasoning-capable
+                            models. In this work, we show that physics simulators can serve as a powerful alternative
+                            source of supervision for training LLMs for physical reasoning. We generate random scenes in
+                            physics engines, create synthetic question–answer pairs from simulated interactions using
+                            pre-written templates, and train LLMs using reinforcement learning on this synthetic data.
+                            Our models exhibit zero-shot sim-to-real transfer to real-world physics benchmarks: for
+                            example, training solely on synthetic simulated data improves performance on IPhO
+                            (International Physics Olympiad) problems by upto 7 percentage points across different model
+                            sizes. These results demonstrate that physics simulators can act as scalable data
+                            generators, enabling LLMs to acquire deep physical reasoning skills beyond the limitations
+                            of internet-scale QA data.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/ Abstract. -->
+        </div>
+    </section>
+
+    <p style="padding: 20px;" />
+
+    <!-- ==================================== -->
+    <!-- SECTION 1: Random Scene Generation   -->
+    <!-- ==================================== -->
+    <section class="section">
+        <!-- 1. OPEN CONTAINER HERE -->
+        <div class="container is-centered">
+
+            <!-- Intro Section -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-three-quarters">
+                    <h2 class="title is-3">Random Scene Generation</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We design a domain-specific language (DSL) to structure the randomization of scene graphs,
+                            enabling controlled variation along physically meaningful axes while guaranteeing validity
+                            and diversity.
+                            Randomization is explicitly restricted to parameters that affect system dynamics; for
+                            example, the absolute length of a pulley string is irrelevant to the physics and is
+                            therefore excluded.
+                            Domain knowledge is used only to prune such non-contributing degrees of freedom, avoiding
+                            unnecessary variability without constraining the underlying physics.
+                            This constitutes a weak, low-cost form of supervision that scales naturally and can be
+                            automated using LLMs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Method Figure (moved from teaser) -->
+            <div class="columns is-centered" style="margin-bottom: 1.5rem;">
+                <div class="column is-full has-text-centered">
+                    <figure style="margin: 0 auto;">
+                        <img src="./static/images/method_figure-1.png" alt="Sim2Reason pipeline overview"
+                            style="width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 2px 16px rgba(0,0,0,0.10);" />
+                        <figcaption style="font-size:0.9rem; color:#666; margin-top:0.6rem;">
+                            <strong>Figure (Method):</strong> Overview of the Sim2Reason pipeline.
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <!-- Arrow Navigator: Scene Type -->
+            <style>
+                .arrow-nav {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                .arrow-nav .nav-label {
+                    min-width: 220px;
+                    text-align: center;
+                    font-size: 1.05rem;
+                    font-weight: 600;
+                    color: #363636;
+                }
+
+                .arrow-nav button.nav-arrow {
+                    background: white;
+                    border: 1px solid #dbdbdb;
+                    border-radius: 50%;
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    font-size: 1.1rem;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: background 0.15s, box-shadow 0.15s;
+                    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+                    color: #363636;
+                }
+
+                .arrow-nav button.nav-arrow:hover {
+                    background: #f5f5f5;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.13);
+                }
+            </style>
+            <div class="columns is-centered">
+                <div class="column is-full has-text-centered">
+                    <div class="arrow-nav" id="scene-nav">
+                        <button class="nav-arrow" id="scene-prev" title="Previous scene"
+                            onclick="navigateScene(-1)">&#8592;</button>
+                        <span class="nav-label" id="scene-label">Loading...</span>
+                        <button class="nav-arrow" id="scene-next" title="Next scene"
+                            onclick="navigateScene(1)">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Display Area -->
+            <div class="columns is-centered is-vcentered">
+                <!-- Left: DSL Code Viewer -->
+                <div class="column is-half">
+                    <div class="content">
+                        <h4 class="title is-5 has-text-centered">DSL Input (YAML)</h4>
+                        <div style="position: relative;">
+                            <pre
+                                style="height: 400px; overflow-y: scroll; background-color: #f5f5f5; border: 1px solid #ddd; border-radius: 5px; padding: 1rem;"><code id="content-dsl" class="language-yaml">Loading code...</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Video Player -->
+                <div class="column is-half">
+                    <div class="has-text-centered">
+                        <h4 class="title is-5">Simulation Output</h4>
+                        <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+                            <video id="video-1" controls autoplay loop muted playsinline width="100%" height="auto">
+                                <source src="" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Figure Caption -->
+            <!-- Now this is inside the container, so it respects the page margins -->
+            <div class="content has-text-centered">
+                <p><strong>Figure 2:</strong> Scene description in DSL (left) and generated MuJoCo scene (right).</p>
+            </div>
+
+        </div> <!-- 2. CLOSE CONTAINER HERE -->
+    </section>
+
+
+    <!-- ==================================== -->
+    <!-- SECTION 2: QA Pair Generation        -->
+    <!-- ==================================== -->
+    <section class="section">
+        <!-- 1. OPEN CONTAINER -->
+        <div class="container is-centered">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-three-quarters">
+                    <h2 class="title is-3">Question Answer Pair Generation</h2>
+                    <div class="content has-text-justified">
+                        <p>Since our scenes are structured, we can write simple natural language descriptions for each
+                            atomic element.
+                            By combining these descriptions according to the scene graph structure, we can automatically
+                            generate diverse question–answer pairs without human annotation.
+                            A question is then formed by randomly selecting one of the relevant physical quantities of
+                            one of bodies in the scene, and the answer is computed by running the simulation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REMOVED CLOSING </div> FROM HERE -->
+
+            <!-- Arrow Navigator: QA Type -->
+            <div class="columns is-centered">
+                <div class="column is-full has-text-centered">
+                    <div class="arrow-nav" id="qa-nav">
+                        <button class="nav-arrow" id="qa-prev" title="Previous type"
+                            onclick="navigateQA(-1)">&#8592;</button>
+                        <span class="nav-label" id="qa-label">Numeric</span>
+                        <button class="nav-arrow" id="qa-next" title="Next type"
+                            onclick="navigateQA(1)">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3x1 Figure -->
+            <div class="columns is-centered is-vcentered">
+                <!-- Left: Image -->
+                <div class="column is-one-third">
+                    <div class="has-text-centered">
+                        <div
+                            style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 5px;">
+                            <h4 class="title is-5" style="margin-bottom: 0;">Recorded Data</h4>
+                            <!-- Expand Button -->
+                            <button class="button is-small is-light" onclick="openPlotModal()" title="Expand Plots">
+                                <span class="icon is-small">🔍</span>
+                            </button>
+                        </div>
+
+                        <!-- Wrap container in a relative div for positioning -->
+                        <div style="position: relative;">
+                            <div id="plot-container"
+                                style="height: 400px; border-radius: 10px; overflow-y: auto; border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1); background-color: #eee; padding: 10px;">
+                                <span>Loading image…</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- NEW: Plot Modal Structure (Put this at the very bottom of your body) -->
+                <div id="plot-modal" class="modal">
+                    <div class="modal-background" onclick="closePlotModal()"></div>
+                    <div class="modal-content"
+                        style="width: 90%; max-height: 90vh; background: white; padding: 20px; border-radius: 10px;">
+                        <div id="modal-plot-container"></div>
+                    </div>
+                    <button class="modal-close is-large" aria-label="close" onclick="closePlotModal()"></button>
+                </div>
+
+                <!-- Middle: Video -->
+                <div class="column is-one-third">
+                    <div class="has-text-centered">
+                        <h4 class="title is-5">Simulation Scene</h4>
+                        <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+                            <video id="video-2" controls autoplay loop muted playsinline width="100%">
+                                <source src="" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: QA Pair -->
+                <div class="column is-one-third">
+                    <div class="has-text-centered">
+                        <h4 class="title is-5">Text QA Pair</h4>
+                        <div id="content-qa"
+                            style="height: 400px; overflow-y: auto; background-color: #f5f5f5; border: 1px solid #ddd; border-radius: 5px; padding: 1.5rem; text-align: left; font-family: monospace; font-size: 0.9rem; white-space: pre-wrap;">
+                            Loading…
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content has-text-centered">
+                <p><strong>Figure 3:</strong> Recorded Data (left), MuJoCo simulation (center), and corresponding QA
+                    pair (right).</p>
+            </div>
+
+        </div> <!-- 2. CLOSE CONTAINER HERE -->
+
+        <!-- This bottom section has its own container, so we keep it separate -->
+        <div class="container is-max-centered">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-three-quarters">
+                    <div class="content has-text-justified">
+                        <p>
+                            We support three question types—numeric, reverse, and symbolic—each requiring a distinct
+                            solution strategy:
+                        </p>
+                        <ul>
+                            <li><strong>Numeric:</strong> Query the value of a physical quantity (e.g., “What is the
+                                tension in string T₁?”).</li>
+                            <li><strong>Reverse:</strong> Specify an outcome and infer the underlying parameter (e.g.,
+                                “If the tension in string T₁ is 5 N, what is the mass of block A?”).</li>
+                            <li><strong>Symbolic:</strong> Express physical quantities as symbols and solve for their
+                                relationships.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section">
+        <div class="container is-max-centered">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-three-quarters">
+                    <h2 class="title is-3">Results</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Across the Qwen2.5 model family, improvements on synthetic tasks consistently translate into
+                            gains on IPhO Mechanics, and this relationship holds across model scale. Models that benefit
+                            more from synthetic-data RL on numeric, reverse, and symbolic tasks also show larger
+                            improvements on real-world physics problems, indicating meaningful transfer without explicit
+                            sim-to-real transfer. Beyond IPhO, the same synthetic RL procedure improves performance on a
+                            range of established physics and mathematics benchmarks, demonstrating that the gains
+                            generalize across domains and evaluation settings.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .score {
+                    font-weight: 600;
+                }
+
+                .baseline {
+                    color: #6b7280;
+                    font-size: 0.9em;
+                }
+
+                .delta {
+                    color: #15803d;
+                    font-size: 0.85em;
+                    margin-left: 6px;
+                }
+
+                .na {
+                    color: #9ca3af;
+                }
+
+                .model {
+                    white-space: nowrap;
+                }
+            </style>
+
+            <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Synthetic<br>Numeric</th>
+                        <th>Synthetic<br>Symbolic</th>
+                        <th>HCV</th>
+                        <th>IPhO<br>Mechanics</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td class="model"><strong>Qwen3-30B</strong></td>
+                        <td>
+                            <span class="baseline">14.8%</span> →
+                            <span class="score">17.4%</span>
+                            <span class="delta">(+2.6)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">8.8%</span> →
+                            <span class="score">8.0%</span>
+                            <span class="delta">(-0.8)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">53.9%</span> →
+                            <span class="score">59.0%</span>
+                            <span class="delta">(+5.1)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">35.6%</span> →
+                            <span class="score">40.0%</span>
+                            <span class="delta">(+4.4)</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="model"><strong>Qwen2.5-72B</strong></td>
+                        <td>
+                            <span class="baseline">8.5%</span> →
+                            <span class="score">18.1%</span>
+                            <span class="delta">(+9.6)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">4.8%</span> →
+                            <span class="score">10.4%</span>
+                            <span class="delta">(+5.6)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">56.1%</span> →
+                            <span class="score">52.2%</span>
+                            <span class="delta">(-3.9)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">20.3%</span> →
+                            <span class="score">25.6%</span>
+                            <span class="delta">(+5.3)</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="model"><strong>Qwen2.5-32B</strong></td>
+                        <td>
+                            <span class="baseline">8.9%</span> →
+                            <span class="score">21.9%</span>
+                            <span class="delta">(+13.0)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">5.6%</span> →
+                            <span class="score">10.4%</span>
+                            <span class="delta">(+4.8)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">50.6%</span> →
+                            <span class="score">53.9%</span>
+                            <span class="delta">(+3.3)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">19.8%</span> →
+                            <span class="score">25.2%</span>
+                            <span class="delta">(+5.4)</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="model"><strong>Qwen2.5-14B</strong></td>
+                        <td>
+                            <span class="baseline">7.0%</span> →
+                            <span class="score">17.0%</span>
+                            <span class="delta">(+10.0)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">5.6%</span> →
+                            <span class="score">10.4%</span>
+                            <span class="delta">(+4.8)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">49.3%</span> →
+                            <span class="score">51.7%</span>
+                            <span class="delta">(+2.4)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">16.07%</span> →
+                            <span class="score">20.45%</span>
+                            <span class="delta">(+4.4)</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="model"><strong>Qwen2.5-7B</strong></td>
+                        <td>
+                            <span class="baseline">5.2%</span> →
+                            <span class="score">17.1%</span>
+                            <span class="delta">(+11.9)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">6.4%</span> →
+                            <span class="score">10.4%</span>
+                            <span class="delta">(+4.0)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">45.0%</span> →
+                            <span class="score">42.6%</span>
+                            <span class="delta">(-2.4)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">10.7%</span> →
+                            <span class="score">12.0%</span>
+                            <span class="delta">(+1.3)</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="model"><strong>Qwen2.5-3B</strong></td>
+                        <td>
+                            <span class="baseline">4.8%</span> →
+                            <span class="score">12.5%</span>
+                            <span class="delta">(+7.7)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">3.2%</span> →
+                            <span class="score">9.4%</span>
+                            <span class="delta">(+6.2)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">31.9%</span> →
+                            <span class="score">39.5%</span>
+                            <span class="delta">(+7.6)</span>
+                        </td>
+                        <td>
+                            <span class="baseline">5.68</span> →
+                            <span class="score">13.15%</span>
+                            <span class="delta">(+7.5)</span>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <div class="content has-text-centered">
+                <p><strong>Table 1:</strong> Qwen2.5 Instruct performance before and after RL on synthetic data and
+                    IPhO.
+                    <br><small>Format: <span class="baseline">baseline</span> → <span class="score">RL</span> (<span
+                            class="delta">Δ</span>)</small>
+                </p>
+            </div>
+
+            <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+
+                <thead>
+                    <tr>
+                        <th>Benchmark</th>
+                        <th class="has-text-centered">Score</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><strong>JEEBench</strong></td>
+                        <td>
+                            <span class="baseline">34.38%</span> →
+                            <span class="score">52.28%</span>
+                            <span class="delta">(+17.90)</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>PHYSICS</strong></td>
+                        <td>
+                            <span class="baseline">39.42%</span> →
+                            <span class="score">43.09%</span>
+                            <span class="delta">(+3.67)</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>OlympiadBench</strong></td>
+                        <td>
+                            <span class="baseline">41.41%</span> →
+                            <span class="score">44.53%</span>
+                            <span class="delta">(+3.12)</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>AIME 25 (mean@8)</strong></td>
+                        <td>
+                            <span class="baseline">10.83%</span> →
+                            <span class="score">12.50%</span>
+                            <span class="delta">(+1.67)</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>MATH 500</strong></td>
+                        <td>
+                            <span class="baseline">78.4%</span> →
+                            <span class="score">82.8%</span>
+                            <span class="delta">(+4.4)</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="content has-text-centered">
+                <p><strong>Table 2:</strong> Qwen2.5-32B Instruct on real-world benchmarks.
+                    <br><small>baseline → RL (Δ)</small>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Usable as val set -->
+    <section class="section">
+        <div class="container is-max-centered">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-three-quarters">
+                    <h2 class="title is-3">Simulator as a Benchmarking Tool</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Our simulator-generated synthetic data provides a fast, low-cost proxy for evaluating
+                            scientific reasoning. Unlike real-world physics experiments, which are expensive and slow to
+                            construct, simulator-based benchmarks are cheap, scalable, and easily reproducible. As shown
+                            in the figure, model performance on our synthetic tasks strongly correlates with performance
+                            on real-world physics problems (such as IPhO), indicating that synthetic evaluation can
+                            reliably predict real-world reasoning ability.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column">
+                        <figure>
+                            <img src="./static/images/corr.svg"
+                                alt="Correlation between synthetic and real-world performance" draggable="false"
+                                style="display:block;margin:0 auto;width:80%;max-width:100%;" />
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Example responses -->
+    <section class="section">
+        <div class="container is-max-centered">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-three-quarters">
+                    <h2 class="title is-3">What does the model learn?</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            After RL fine-tuning on synthetic data, the model shows a clear shift in how it uses physics
+                            equations. Arithmetic mistakes largely vanish, but more importantly, equations are selected
+                            based on the physical setup rather than applied verbatim.
+                        </p>
+                        <p>
+                            Additionally, these gains are not constrained to the scope of the simulator used to generate
+                            the training data. The fine-tuned model also improves on problems that are not simulatable
+                            in MuJoCo, indicating that this recipe can drive learning that generalizes beyond the domain
+                            knowledge in the simulator.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arrow navigation + example viewer -->
+            <style>
+                .ex-nav {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1rem;
+                    margin-bottom: 1.2rem;
+                }
+
+                .ex-nav .ex-title {
+                    min-width: 280px;
+                    text-align: center;
+                    font-size: 1.05rem;
+                    font-weight: 600;
+                    color: #363636;
+                }
+
+                .ex-nav button.nav-arrow {
+                    background: white;
+                    border: 1px solid #dbdbdb;
+                    border-radius: 50%;
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    font-size: 1.1rem;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: background 0.15s, box-shadow 0.15s;
+                    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+                    color: #363636;
+                }
+
+                .ex-nav button.nav-arrow:hover {
+                    background: #f5f5f5;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.13);
+                }
+
+                .ex-question-box {
+                    background: #f8f9ff;
+                    border: 2px solid #d0d8ff;
+                    border-radius: 10px;
+                    padding: 1.2rem 1.5rem;
+                    margin-bottom: 1rem;
+                    font-size: 0.97rem;
+                    line-height: 1.7;
+                    text-align: left;
+                }
+
+                .ex-question-box .ex-source {
+                    font-size: 0.78rem;
+                    font-weight: 700;
+                    letter-spacing: 0.05em;
+                    color: #5a6ad8;
+                    text-transform: uppercase;
+                    margin-bottom: 0.5rem;
+                }
+
+                .ex-cols {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1rem;
+                }
+
+                @media (max-width: 700px) {
+                    .ex-cols {
+                        grid-template-columns: 1fr;
+                    }
+                }
+
+                .ex-panel {
+                    border-radius: 10px;
+                    overflow: hidden;
+                    border: 1px solid #e0e0e0;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .ex-panel-header {
+                    padding: 0.55rem 1rem;
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    letter-spacing: 0.04em;
+                    text-transform: uppercase;
+                }
+
+                .ex-panel.base-panel .ex-panel-header {
+                    background: #fff3cd;
+                    color: #856404;
+                }
+
+                .ex-panel.rl-panel .ex-panel-header {
+                    background: #d1f7e0;
+                    color: #155724;
+                }
+
+                .ex-panel-body {
+                    padding: 1rem 1.1rem;
+                    background: #fafafa;
+                    font-size: 0.88rem;
+                    line-height: 1.65;
+                    flex: 1;
+                    text-align: left;
+                    overflow-y: auto;
+                    max-height: 480px;
+                }
+
+                .ex-step {
+                    margin-bottom: 0.8rem;
+                }
+
+                .ex-step-label {
+                    font-weight: 700;
+                    margin-bottom: 0.2rem;
+                    font-size: 0.85rem;
+                }
+
+                .ex-step.type-error .ex-step-label {
+                    color: #c0392b;
+                }
+
+                .ex-step.type-wrong .ex-step-label {
+                    color: #c0392b;
+                }
+
+                .ex-step.type-correct .ex-step-label {
+                    color: #27ae60;
+                }
+
+                .ex-step.type-step .ex-step-label {
+                    color: #2c3e50;
+                }
+
+                .ex-step.type-error {
+                    background: #fff5f5;
+                    border-left: 3px solid #e74c3c;
+                    padding: 0.5rem 0.7rem;
+                    border-radius: 0 5px 5px 0;
+                }
+
+                .ex-step.type-wrong {
+                    background: #fff5f5;
+                    border-left: 3px solid #e74c3c;
+                    padding: 0.5rem 0.7rem;
+                    border-radius: 0 5px 5px 0;
+                }
+
+                .ex-step.type-correct {
+                    background: #f0fff4;
+                    border-left: 3px solid #2ecc71;
+                    padding: 0.5rem 0.7rem;
+                    border-radius: 0 5px 5px 0;
+                }
+
+                .ex-step.type-step {
+                    background: transparent;
+                    padding: 0.3rem 0.7rem 0;
+                }
+            </style>
+
+            <div class="columns is-centered">
+                <div class="column is-full" style="max-width:900px; margin:0 auto;">
+                    <!-- Arrow nav -->
+                    <div class="ex-nav">
+                        <button class="nav-arrow" onclick="navigateExample(-1)">&#8592;</button>
+                        <span class="ex-title" id="ex-title">Loading...</span>
+                        <button class="nav-arrow" onclick="navigateExample(1)">&#8594;</button>
+                    </div>
+
+                    <!-- Question panel -->
+                    <div class="ex-question-box" id="ex-question">
+                        <div class="ex-source" id="ex-source"></div>
+                        <div id="ex-question-body">Loading...</div>
+                    </div>
+
+                    <!-- Base | RL side by side -->
+                    <div class="ex-cols">
+                        <div class="ex-panel base-panel">
+                            <div class="ex-panel-header">⚠ Base Model</div>
+                            <div class="ex-panel-body" id="ex-base-body">Loading...</div>
+                        </div>
+                        <div class="ex-panel rl-panel">
+                            <div class="ex-panel-header">✓ RL Fine-tuned Model</div>
+                            <div class="ex-panel-body" id="ex-rl-body">Loading...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <div class="buttons is-centered" style="gap:0.5rem; flex-wrap:wrap;">
+                    <a class="button is-dark is-rounded" href="./static/docs/physics_rl.pdf" target="_blank">
+                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                        <span>Paper</span>
+                    </a>
+                    <a class="button is-dark is-rounded" href="https://sim2reason.github.io" target="_blank">
+                        <span class="icon"><i class="ai ai-arxiv"></i></span>
+                        <span>arXiv <span style="opacity:.7; font-size:.82em;">(coming soon)</span></span>
+                    </a>
+                    <a class="button is-dark is-rounded" href="https://sim2reason.github.io" target="_blank">
+                        <span class="icon" style="font-weight:900; font-size:1rem; font-family:sans-serif;">𝕏</span>
+                        <span>Twitter <span style="opacity:.7; font-size:.82em;">(coming soon)</span></span>
+                    </a>
+                    <a class="button is-dark is-rounded" href="https://sim2reason.github.io" target="_blank">
+                        <span class="icon"><i class="fab fa-github"></i></span>
+                        <span>Code <span style="opacity:.7; font-size:.82em;">(coming soon)</span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./static/js/index.js?v=8"></script>
+    <script src="./static/js/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs-bibtex@2.0.1/prism-bibtex.js"
+        integrity="sha256-+dK6uqUp/DnP6ef97s8XcoynBnGe5vM5gvBECH0EB3U=" crossorigin="anonymous">
+        </script>
+</body>

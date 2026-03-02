@@ -1,0 +1,48 @@
+{
+    "title": "IPhO 2013 Question 1 — \"The Maribo Meteorite\"",
+    "question": "A meteoroid from Comet Encke impacted Earth (the Maribo meteorite). Measurements show the meteorite formed shortly after the solar system's birth.\n\nIn its orbit around the Sun, the minimum and maximum distances between Comet Encke and the Sun are:\n$$a_{\\min} = 4.95 \\times 10^{10}\\text{ m}, \\quad a_{\\max} = 6.16 \\times 10^{11}\\text{ m}$$\n\n**Calculate the orbital period $t_{\\rm Encke}$ of Comet Encke. Express the answer in SI units (seconds).**",
+    "base": [
+        {
+            "type": "step",
+            "label": "Step 1: Semi-major axis",
+            "text": "$a = (a_{\\min} + a_{\\max}) / 2 = (4.95\\times10^{10} + 6.16\\times10^{11}) / 2 = 33.275\\times10^{10}\\text{ m}$"
+        },
+        {
+            "type": "error",
+            "label": "Step 2: Kepler's law — ARITHMETIC ERROR ✗",
+            "text": "Using $\\mu = 1.327\\times10^{20}\\text{ m}^3/\\text{s}^2$:\n$$T^2 = (33.275\\times10^{10})^3 / 1.327\\times10^{20} = 3.7074\\times10^{33} / 1.327\\times10^{20}$$\n**ERROR**: $a^3 = (3.3275\\times10^{11})^3 \\approx 3.7\\times10^{34}$, not $3.7\\times10^{33}$ — off by an order of magnitude."
+        },
+        {
+            "type": "error",
+            "label": "Step 3: Wrong answer from arithmetic cascade ✗",
+            "text": "$T^2 \\approx 2.794\\times10^{13}\\text{ s}^2 \\implies T \\approx 5.285\\times10^6\\text{ s} \\approx 61.37\\text{ days}$"
+        },
+        {
+            "type": "wrong",
+            "label": "Answer: 61.37 days ✗",
+            "text": "A factor-of-10 error in computing $a^3$ leads to a period $\\sim 10\\times$ too small."
+        }
+    ],
+    "rl": [
+        {
+            "type": "step",
+            "label": "Step 1: Semi-major axis",
+            "text": "$a = (4.95\\times10^{10} + 61.6\\times10^{10}) / 2 = 3.3275\\times10^{11}\\text{ m}$"
+        },
+        {
+            "type": "step",
+            "label": "Step 2: Convert to AU for clean Kepler scaling",
+            "text": "$1\\text{ AU} = 1.496\\times10^{11}\\text{ m}$\n$a_{\\rm AU} = 3.3275\\times10^{11} / 1.496\\times10^{11} \\approx 2.225\\text{ AU}$\nUsing Kepler's Third Law ($T^2 = a^3$ in AU/years):\n$T^2 = (2.225)^3 \\approx 10.96 \\implies T \\approx 3.31\\text{ years}$"
+        },
+        {
+            "type": "step",
+            "label": "Step 3: Convert to SI",
+            "text": "$1\\text{ year} = 3.154\\times10^7\\text{ s}$\n$T = 3.31 \\times 3.154\\times10^7 \\approx 1.04\\times10^8\\text{ s}$"
+        },
+        {
+            "type": "correct",
+            "label": "Answer: $1.04 \\times 10^8$ s ✓",
+            "text": "Switching to AU/years avoids large-number arithmetic errors and gives the correct orbital period."
+        }
+    ]
+}

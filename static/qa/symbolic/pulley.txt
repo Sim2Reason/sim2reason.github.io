@@ -1,0 +1,16 @@
+<description>
+In a system called 'fixed_pulley_start', a block of mass m_1 kg is suspended in the air with the help of a light string that goes over a pulley. 
+The string that connects the block to an overhead pulley in 'fixed_pulley_start' extends outward  to connect to the left side of the prism in 'mass_prism_plane' after wrapping around a pulley on the left side of the plane, remaining parallel to the plane.
+In a system called mass_prism_plane, a block of mass m_2 kg rests on the left side a movable prism of mass m_3 Kg. The prism makes an angle θ_1 degrees with the plane, which in turn makes an angle θ_2 degrees with horizontal.  
+</description>
+<question>
+What is the net kinetic energy (rotation if any + linear) of the block in the system 'fixed_pulley_start' after t seconds?
+</question>
+
+<answer>
+21.009909327132164
+</answer>
+
+<mapping>
+{'m_1': 1.5, 'm_2': 0.3, 'm_3': 1.0, 'θ_1': 30, 'θ_2': 0}
+</mapping>

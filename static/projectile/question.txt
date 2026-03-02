@@ -1,0 +1,8 @@
+Problem: Ballistics Safety Envelope
+
+A ball is thrown with a fixed initial speed v_0 in a homogeneous gravitational field. The x-axis is horizontal, and the z-axis is vertical (opposing gravity g). 
+
+By adjusting the launching angle, the ball can hit any target within a region defined by the parabola:
+z <= z_0 - k * x^2
+
+You can use this fact without proving it. Find the constants z_0 and k in terms of v_0 and g.

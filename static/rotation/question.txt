@@ -1,0 +1,15 @@
+A small mass (m = 0.10 kg) moving with initial speed u = 5.00 m/s collides elastically with a bar (Mass M = 1.00 kg, Length L = 0.20 m) that is pivoted at one end. The collision occurs at a distance L/2 from the pivot.
+
+Parameters:
+- m = 0.10 kg
+- u = 5.00 m/s
+- M = 1.00 kg
+- L = 0.20 m
+- I_bar (about pivot) = ML^2 / 3
+
+The velocity of the small mass (v) after the collision is closest to:
+
+[A] 4.30 m/s
+[B] 5.00 m/s
+[C] -2.50 m/s
+[D] 2.15 m/s

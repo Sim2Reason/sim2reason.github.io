@@ -1,0 +1,263 @@
+% \begin{minipage}{\linewidth}    
+% \begin{tcolorbox}[
+%     title={\textbf{JEE Advanced 2017 Paper 2}},
+%     colback=white,
+%     colframe=gray!50!black,
+%     arc=3pt,
+%     boxrule=1pt,
+%     fonttitle=\sffamily\large,
+%     width=\linewidth
+% ]
+
+%     % --- QUESTION SECTION ---
+%     \begin{tcolorbox}[
+%         colback=gray!5,
+%         colframe=gray!20,
+%         coltitle=black,
+%         title={\small \textbf{QUESTION}},
+%         fontupper=\small\sffamily,
+%         boxrule=0.5pt,
+%         sharp corners,
+%         left=3pt, right=3pt, top=3pt, bottom=3pt
+%     ]
+%         A rocket is launched normal to the surface of the Earth, away from the Sun, along the line joining the Sun and the Earth. 
+%         \vspace{0.5em}
+        
+%         \textbf{Parameters:}
+%         \begin{itemize}[nosep, leftmargin=1.5em]
+%             \item Mass of Sun = 300,000 * Mass of Earth
+%             \item Distance = 25,000 * Radius of Earth
+%             \item Escape Velocity (Earth) = 11.2 km/s
+%         \end{itemize}
+%         \vspace{0.5em}
+%         The minimum initial velocity (v\_S) required for the rocket to be able to leave the Sun-Earth system is closest to:
+%         \textbf{[A]} 22 km/s \quad \textbf{[B]} 42 km/s \quad \textbf{[C]} 62 km/s \quad \textbf{[D]} 72 km/s
+%     \end{tcolorbox}
+
+%     \vspace{0.5em}
+
+%     % --- SIDE-BY-SIDE LAYOUT ---
+%     \noindent
+%     \begin{minipage}[t]{0.49\linewidth}
+%         \vspace{0pt} % <--- CRITICAL FIX: Forces top alignment
+%         % --- BASE MODEL (LEFT) ---
+%         \begin{tcolorbox}[
+%             title={\small \textbf{BASE MODEL}},
+%             colframe=blue!60!white,
+%             colback=blue!5!white,
+%             coltitle=white,
+%             fontupper=\scriptsize\ttfamily\raggedright,
+%             boxrule=0.5pt,
+%             sharp corners,
+%             left=2pt, right=2pt,
+%             width=\linewidth,
+%             nobeforeafter % <--- Ensures no extra vertical space is added
+%         ]
+%             \textbf{\textcolor{blue!60!black}{Step 1:}} Calculate Escape Velocity from Sun\\
+%             Using the given ratios (Mass\_Sun = 3e5 * M\_E, Distance = 2.5e4 * R\_E):\\
+%             v\_sun = sqrt(2 * G * M\_Sun / R)\\
+%             v\_sun $\approx$ 54.78 km/s
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{blue!60!black}{Step 2:}} Calculate Total Velocity\\
+%             To escape both bodies, we sum the required velocities:\\
+%             v\_total = v\_earth + v\_sun\\
+%             v\_total = 11.2 km/s + 54.78 km/s
+            
+%             % ERROR HIGHLIGHT
+%             \vspace{0.3em}
+%             \colorbox{red!15}{\textcolor{red!80!black}{\textbf{ERROR}: Linear addition}}
+%             \vspace{0.3em}
+            
+%             v\_total $\approx$ 65.98 km/s
+%             \vspace{1em}
+            
+%             \textbf{Conclusion:}\\
+%             The calculated value (66 km/s) is closest to option [C].
+%             \vspace{1em}
+            
+%             \textbf{Predicted Answer: [C] 62 km/s (Incorrect)}
+%         \end{tcolorbox}
+%     \end{minipage}%
+%     \hfill
+%     \begin{minipage}[t]{0.49\linewidth}
+%         \vspace{0pt} % <--- CRITICAL FIX: Forces top alignment
+%         % --- RL-FINETUNED MODEL (RIGHT) ---
+%         \begin{tcolorbox}[
+%             title={\small \textbf{RL-FINETUNED MODEL}},
+%             colframe=green!50!black,
+%             colback=green!5!white,
+%             coltitle=white,
+%             fontupper=\scriptsize\ttfamily\raggedright,
+%             boxrule=0.5pt,
+%             sharp corners,
+%             left=2pt, right=2pt,
+%             width=\linewidth,
+%             nobeforeafter % <--- Ensures no extra vertical space is added
+%         ]
+%             \textbf{\textcolor{green!40!black}{Step 1:}} Analyze the System\\
+%             We need to escape the combined potential of Earth and Sun.\\
+%             - Earth Escape Velocity: 11.2 km/s\\
+%             - Sun Escape Velocity (at Earth's distance): $\approx$ 42 km/s (based on standard solar data)
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{green!40!black}{Step 2:}} Determine Effective Velocity\\
+%             Since the Sun's gravitational well is significantly deeper than Earth's, the escape velocity is dominated by the Sun.\\
+%             Physically, velocities add in quadrature (energy):\\
+%             v\_total = sqrt(v\_sun\^{}2 + v\_earth\^{}2)
+%             \vspace{0.5em}
+            
+%             Because v\_sun (42) >> v\_earth (11), the result is approximately v\_sun.\\
+%             v\_total $\approx$ 42 km/s
+%             \vspace{1em}
+            
+%             \textbf{Conclusion:}\\
+%             The minimum velocity is dictated by the Sun's gravity.
+%             \vspace{1em}
+            
+%             \textbf{Predicted Answer: [B] 42 km/s (Correct)}
+%         \end{tcolorbox}
+%     \end{minipage}
+
+% \end{tcolorbox}
+%     \captionof{figure}{\textbf{LLM answers before (left) and after (right) RL finetuning.} Question adapted from JEE Advanced 2017 Paper 2.}
+%     \label{fig:jee_2017_p2}
+% \end{minipage}
+
+\begin{minipage}{\linewidth}    
+\begin{tcolorbox}[
+    title={\small\textbf{JEE Advanced 2017 Paper 2}},
+    colback=white,
+    colframe=gray!50!black,
+    arc=3pt,
+    boxrule=1pt,
+    fonttitle=\sffamily\large,
+    width=\linewidth
+]
+
+    % --- QUESTION SECTION ---
+    \begin{tcolorbox}[
+        colback=gray!5,
+        colframe=gray!20,
+        coltitle=black,
+        title={\scriptsize \textbf{QUESTION}},
+        fontupper=\small\sffamily,
+        boxrule=0.5pt,
+        sharp corners,
+        left=3pt, right=3pt, top=3pt, bottom=3pt
+    ]
+        \begin{scriptsize}
+            
+        A rocket is launched normal to the surface of the Earth, away from the Sun, along the line joining the Sun and the Earth. 
+        \vspace{0.5em}
+        
+        \textbf{Parameters:}
+        \begin{itemize}[nosep, leftmargin=1.5em]
+            \item Mass of Sun = $300,000 \times$ Mass of Earth
+            \item Distance = $25,000 \times$ Radius of Earth
+            \item Escape Velocity (Earth) = $11.2\text{ km/s}$
+        \end{itemize}
+        \vspace{0.5em}
+        The minimum initial velocity ($v_S$) in km/s required for the rocket to be able to leave the Sun-Earth system is closest to:\\
+        \textbf{[A]} $22$ \quad \textbf{[B]} $42$ \quad \textbf{[C]} $62$ \quad \textbf{[D]} $72$
+        \end{scriptsize}
+    \end{tcolorbox}
+
+    \vspace{-0.5em}
+
+    % --- SIDE-BY-SIDE LAYOUT ---
+    \noindent
+    \begin{minipage}[t]{0.49\linewidth}
+        \vspace{0pt} 
+        % --- BASE MODEL (LEFT) ---
+        \begin{tcolorbox}[
+            title={\scriptsize \textbf{BASE MODEL}},
+            colframe=blue!60!white,
+            colback=blue!5!white,
+            coltitle=white,
+            fontupper=\scriptsize\ttfamily\raggedright,
+            boxrule=0.5pt,
+            sharp corners,
+            left=2pt, right=2pt,
+            width=\linewidth,
+            nobeforeafter
+        ]
+            \textbf{\textcolor{blue!60!black}{Step 1:}} Calculate Escape Velocity from Sun\\
+            Using the given ratios ($M_{\text{Sun}} = 3\times 10^5 M_E$, $D = 2.5\times 10^4 R_E$):\\\hfill\\
+            $v_{\text{sun}} = \sqrt{2 G M_{\text{Sun}} / R}$\\
+            $v_{\text{sun}} \approx 54.78\text{ km/s}$
+            \colorbox{red!15}{\textcolor{red!80!black}{\textbf{ERROR}: }}
+            \colorbox{red!15}{\textcolor{red!80!black}{Correct $\approx$ 39 km/s}}
+            \vspace{0.3em}
+            
+            \vspace{1em}
+            
+            \textbf{\textcolor{blue!60!black}{Step 2:}} Calculate Total Velocity\\
+            To escape both bodies, we sum the required velocities:\\\hfill\\
+            $v_{\text{total}} = v_{\text{earth}} + v_{\text{sun}}$\\
+            $v_{\text{total}} = 11.2 + 54.78\text{ km/s}$
+            
+            % ERROR HIGHLIGHT
+            \vspace{0.3em}
+            \colorbox{red!15}{\textcolor{red!80!black}{\textbf{ERROR}: }}
+            \colorbox{red!15}{\textcolor{red!80!black}{Linear addition}}
+            \vspace{0.3em}
+            
+            $v_{\text{total}} \approx 65.98\text{ km/s}$
+            \vspace{1em}
+            
+            \textbf{Conclusion:}\\
+            The calculated value ($66\text{ km/s}$) is closest to option [C].
+            \vspace{1em}
+            
+            \textbf{Predicted Answer: [C] 62 km/s (Incorrect)}
+        \end{tcolorbox}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \vspace{0pt} 
+        % --- RL-FINETUNED MODEL (RIGHT) ---
+        \begin{tcolorbox}[
+            title={\scriptsize \textbf{RL-FINETUNED MODEL}},
+            colframe=green!50!black,
+            colback=green!5!white,
+            coltitle=white,
+            fontupper=\scriptsize\ttfamily\raggedright,
+            boxrule=0.5pt,
+            sharp corners,
+            left=2pt, right=2pt,
+            width=\linewidth,
+            nobeforeafter 
+        ]
+            \textbf{\textcolor{green!40!black}{Step 1:}} Analyze the System\\
+            We need to escape the combined potential of Earth and Sun.\\
+            - Earth Escape Velocity: $11.2\text{ km/s}$\\
+            - Sun Escape Velocity (at Earth's distance): $\approx 42\text{ km/s}$ (based on standard solar data)
+            \vspace{1em}
+            
+            \textbf{\textcolor{green!40!black}{Step 2:}} Determine Effective Velocity\\
+            Since the Sun's gravitational well is significantly deeper than Earth's, the escape velocity is dominated by the Sun.\\\\
+            $v_{\text{total}} = \sqrt{v_{\text{sun}}^2 + v_{\text{earth}}^2}$
+            \vspace{0.5em}
+
+            \vspace{0.3em}
+            \colorbox{green!15}{\textcolor{green!80!black}{\textbf{Correct}:}}
+            \colorbox{green!15}{\textcolor{green!80!black}{Energy Addition}}
+            \vspace{0.3em}
+            
+            Because $v_{\text{sun}} (42) \gg v_{\text{earth}} (11)$, the result is approximately $v_{\text{sun}}$.\\
+            $v_{\text{total}} \approx 42\text{ km/s}$
+            \vspace{1em}
+            
+            \textbf{Conclusion:}\\
+            The minimum velocity is dictated by the Sun's gravity.
+            \vspace{1em}
+            
+            \textbf{Predicted Answer: [B] 42 km/s (Correct)}
+        \end{tcolorbox}
+    \end{minipage}
+
+\end{tcolorbox}
+    \captionof{figure}{\textbf{LLM answers before (left) and after (right) RL finetuning.} Question adapted from JEE Advanced 2017 Paper 2.}
+    \label{fig:jee_2017_p2}
+\end{minipage}

@@ -1,0 +1,14 @@
+<description>
+In a hypothetical setting, a planet with mass m_2 M and radius r_1 R is present free from any other influeneces. A rocket of mass m_1 M is launched making an angle θ_1 with the vertical from the planet's surface. The rocket expels gas at a constant velocity of vx_1 R/T w.r.t to the nozzle, losing mass at a constant rate of m_3 M/T. The rocket's weight apart from the fuel is m_4 M, meaning when the fuel is exhausted, the rocket's mass is m_4 M. The units (mass: M, length: R, time: T) are custom such that the gravitational constant G = 0.001; they are not SI units.
+</description>
+<question>
+What is the magnitude of the acceleration of the rocket in this hypothetical system after t seconds?
+</question>
+
+<answer>
+8.715048721439093e-05
+</answer>
+
+<mapping>
+{'m_1': 0.1, 'm_2': 100, 'r_1': 0.1, 'vx_1': 27.5, 'm_3': 0.025, 'm_4': 0.06, 'θ_1': 0}
+</mapping>

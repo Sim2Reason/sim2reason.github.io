@@ -1,0 +1,38 @@
+{
+    "title": "IPhO 2018 Question 1 — \"LIGO-GW150914\"",
+    "question": "Find the dimensionless coefficient $\\xi$ for gravitational wave power emitted by a binary system:\n$$\\mathcal{P} = \\frac{G}{5c^5}\\sum_{i,j}\\left(\\frac{d^3 Q_{ij}}{dt^3}\\right)^2 = \\xi\\,\\frac{G}{c^5}\\mu^2 L^4 \\Omega^6$$\n\n**Quadrupole moments** (where $k = 2\\Omega$):\n- $Q_{ii} = \\frac{\\mu L^2}{2}(a_i + b_i\\cos kt)$, with $b_1=1,\\; b_2=-1,\\; b_3=0$\n- $Q_{12} = Q_{21} = \\frac{\\mu L^2}{2}\\sin kt$\n\n**(A)** 1.6 &emsp; **(B)** 3.2 &emsp; **(C)** 6.4 &emsp; **(D)** 12.8",
+    "base": [
+        {
+            "type": "error",
+            "label": "Step 1: Third derivative — MISSING CHAIN RULE FACTOR ✗",
+            "text": "The model computes derivatives of $Q \\sim \\tfrac{1}{2}\\cos(2\\Omega t)$:\n\nFirst: $\\sim \\tfrac{1}{2}(2\\Omega) = \\Omega$\nSecond: $\\sim \\Omega \\cdot \\Omega = \\Omega^2$ **← drops the factor of 2 from chain rule**\nThird: $\\sim \\Omega^2 \\cdot 2\\Omega = 2\\Omega^3$\n\nCoefficient $A = 2$ (should be $4$)"
+        },
+        {
+            "type": "error",
+            "label": "Step 2: Sum — WRONG RESULT ✗",
+            "text": "$A^2 = 4$, sum over components = 8\n$$\\xi = \\frac{8}{5} = 1.6$$"
+        },
+        {
+            "type": "wrong",
+            "label": "Answer: (A) 1.6 ✗",
+            "text": "The chain-rule error propagates: coefficient is $2\\times$ too small, so $\\xi$ is $4\\times$ too small."
+        }
+    ],
+    "rl": [
+        {
+            "type": "step",
+            "label": "Step 1: Third derivative — applying chain rule correctly",
+            "text": "Differentiating $Q \\sim \\tfrac{1}{2}\\cos(2\\Omega t)$ three times:\n\n1st: $\\tfrac{1}{2}(-2\\Omega)\\sin(2\\Omega t)$\n2nd: $\\tfrac{1}{2}(-4\\Omega^2)\\cos(2\\Omega t)$\n3rd: $\\tfrac{1}{2}(+8\\Omega^3)\\sin(2\\Omega t)$\n\nCoefficient $A = 4$"
+        },
+        {
+            "type": "step",
+            "label": "Step 2: Sum over components",
+            "text": "$A^2 = 16$. Summing diagonal ($b_1,b_2$) and off-diagonal ($c_{12}, c_{21}$) terms using $\\langle \\sin^2 \\rangle = \\tfrac{1}{2}$:\n$$\\text{Sum} = 16 + 16 = 32$$\n$$\\xi = \\frac{32}{5} = 6.4$$"
+        },
+        {
+            "type": "correct",
+            "label": "Answer: (C) 6.4 ✓",
+            "text": "Consistent application of the chain rule at each differentiation step yields the correct coefficient."
+        }
+    ]
+}

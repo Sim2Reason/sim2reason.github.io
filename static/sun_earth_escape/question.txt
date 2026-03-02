@@ -1,0 +1,13 @@
+A rocket is launched normal to the surface of the Earth, away from the Sun, along the line joining the Sun and the Earth. 
+
+Parameters:
+- Mass of Sun = 300,000 * Mass of Earth
+- Distance = 25,000 * Radius of Earth
+- Escape Velocity (Earth) = 11.2 km/s
+
+The minimum initial velocity (v_S) required for the rocket to be able to leave the Sun-Earth system is closest to:
+
+[A] 22 km/s
+[B] 42 km/s
+[C] 62 km/s
+[D] 72 km/s

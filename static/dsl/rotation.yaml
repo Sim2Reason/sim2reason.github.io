@@ -1,0 +1,19 @@
+scene:
+  name: rotation
+  tag: RigidBodyRotation
+  entities:
+    - name: MyRigidRotationEntity
+      type: RigidRotationEntity
+      position: [0.0, 0.0, 0.0]
+      orientation: [1.0, 0.0, 0.0, 0.0]
+      parameters:
+        rigid_bodies:
+          - body_type: Bar
+            pos: [0.0, 0.0, 0.0]
+            quat: [1.0, 0.0, 0.0, 0.0]
+            length: 1.5
+            width: 0.1
+            height: 0.1
+        joint:
+          position: [0.0, 0.0, 0.0]
+          axis: [0.0, 1.0, 0.0] 

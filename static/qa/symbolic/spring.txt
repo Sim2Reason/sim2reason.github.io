@@ -1,0 +1,14 @@
+<description>
+A block of mass m_1 is connected to 3 springs (in parallel) each fixed at one end and attached to the block at the other end. The springs are initially inclined at angles of 45, 90 and 180 degrees with the horizontal. The springs have stiffness k_1, k_2 and k_3 N/m.  While their natural lengths are 1, 1 and 1 m, they are initially streched / compressed to be of lengths 1.414, 1 and 2 m.
+</description>
+<question>
+What is the magnitude of the velocity of the block after t seconds?
+</question>
+
+<answer>
+4.48788427847177
+</answer>
+
+<mapping>
+{'m_1': 0.1, 'k_1': 50, 'k_2': 50, 'k_3': 100}
+</mapping>

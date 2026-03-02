@@ -1,0 +1,31 @@
+Step 1: Analyze the Physical Meaning
+The equation z = z_0 - k * x^2 represents the "Envelope of Safety"—the outer boundary of all possible trajectories. We are not looking for one specific path, but the limits of all paths.
+
+We can find the constants by identifying two critical edge cases on this boundary:
+1. The maximum possible height (z_max) where x = 0.
+2. The maximum possible range (x_max) where z = 0.
+
+Step 2: Find z_0 (The Peak)
+The maximum height is achieved by throwing the ball straight up (theta = 90).
+Using energy conservation (mgh = 1/2 mv^2):
+z_0 = v_0^2 / (2g)
+
+Step 3: Find k (The Width)
+The boundary touches the ground (z = 0) at the maximum possible range.
+We know max range occurs at 45 degrees:
+x_max = v_0^2 / g
+
+Now, substitute this point (z=0, x = v_0^2/g) into the boundary equation:
+0 = z_0 - k * (x_max)^2
+0 = (v_0^2 / 2g) - k * (v_0^2 / g)^2
+
+Step 4: Solve for k
+k * (v_0^4 / g^2) = v_0^2 / (2g)
+k = (v_0^2 / 2g) * (g^2 / v_0^4)
+k = g / (2 * v_0^2)
+
+Conclusion:
+z_0 = v_0^2 / (2g)
+k = g / (2 * v_0^2)
+
+Predicted Answer: z_0 = v_0^2/2g, k = g/2v_0^2  (Correct)

@@ -1,0 +1,15 @@
+Step 1: Calculate Escape Velocity from Sun
+Using the given ratios (Mass_Sun = 3e5 * M_E, Distance = 2.5e4 * R_E):
+v_sun = sqrt(2 * G * M_Sun / R) 
+v_sun ≈ 54.78 km/s
+
+Step 2: Calculate Total Velocity
+To escape both bodies, we sum the required velocities:
+v_total = v_earth + v_sun
+v_total = 11.2 km/s + 54.78 km/s   <-- ERROR: Linear addition
+v_total ≈ 65.98 km/s
+
+Conclusion:
+The calculated value (66 km/s) is closest to option [C].
+
+Predicted Answer: [C] 62 km/s  (Incorrect)

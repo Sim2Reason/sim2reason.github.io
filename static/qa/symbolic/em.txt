@@ -1,0 +1,16 @@
+<description>
+A charged particle with charge q_1 C and mass m_1 kg is initially launched in the space. It has an initial velocity of vx_1 m/s in the x-direction and vy_1 m/s in the y-direction. 
+There is a electric field whose strength varies with the position as f_x = 1.27 / Δr^2 and direction is along the Δr vector. Δr refers to the position vector from (1.17, 1.74) m to the point.
+The charged particle is only affected by the fields mentioned. Forces by other charged particles or gravity are negligible. The particle is not affected by any other forces.
+</description>
+<question>
+What is the magnitude of the acceleration of the charged particle after t seconds?
+</question>
+
+<answer>
+0.00650619338575815
+</answer>
+
+<mapping>
+{'q_1': 1.04, 'm_1': 1.12, 'vx_1': -0.79, 'vy_1': 2.03}
+</mapping>

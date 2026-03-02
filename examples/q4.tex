@@ -1,0 +1,293 @@
+% \begin{minipage}{\linewidth}
+% \begin{tcolorbox}[
+%     title={\textbf{IPhO 2018 Q1}},
+%     colback=white,
+%     colframe=gray!50!black,
+%     arc=3pt,
+%     boxrule=1pt,
+%     fonttitle=\sffamily\large,
+%     width=\linewidth
+% ]
+
+%     % --- QUESTION SECTION ---
+%     \begin{tcolorbox}[
+%         colback=gray!5,
+%         colframe=gray!20,
+%         coltitle=black,
+%         title={\small \textbf{QUESTION}},
+%         fontupper=\small\sffamily,
+%         boxrule=0.5pt,
+%         sharp corners,
+%         left=3pt, right=3pt, top=3pt, bottom=3pt
+%     ]
+%         Calculate the dimensionless coefficient $\xi$ for the power $\mathcal{P}$ emitted in gravitational waves by a binary system.
+%         \vspace{0.5em}
+        
+%         \textbf{Formula:}
+%         \[ \mathcal{P} = \frac{G}{5 c^{5}} \sum_{i,j} \left(\frac{\mathrm{d}^{3} Q_{i j}}{\mathrm{d} t^{3}}\right)^2 = \xi \frac{G}{c^5} \mu^2 L^4 \Omega^6 \]
+        
+%         \textbf{Given Quadrupole Moments} (where $k = 2\Omega$):\\
+%         $Q_{ii} = \frac{\mu L^2}{2} (a_i + b_i \cos kt)$ \quad and \quad $Q_{ij} = \frac{\mu L^2}{2} c_{ij} \sin kt$ \ (for $i \neq j$)
+%         \vspace{0.5em}
+        
+%         \textbf{Parameters:}\\
+%         $b_1 = 1, b_2 = -1, b_3 = 0$; \quad $c_{12} = c_{21} = 1$ (others 0).
+%         \vspace{0.5em}
+        
+%         The value of $\xi$ is: \quad
+%         \textbf{[A]} 1.6 \quad \textbf{[B]} 3.2 \quad \textbf{[C]} 6.4 \quad \textbf{[D]} 12.8
+%     \end{tcolorbox}
+
+%     \vspace{0.5em}
+
+%     % --- SIDE-BY-SIDE LAYOUT ---
+%     \noindent
+%     \begin{minipage}[t]{0.49\linewidth}
+%         \vspace{0pt}
+%         % --- BASE MODEL (LEFT) ---
+%         \begin{tcolorbox}[
+%             title={\small \textbf{BASE MODEL}},
+%             colframe=blue!60!white,
+%             colback=blue!5!white,
+%             coltitle=white,
+%             fontupper=\scriptsize\ttfamily\raggedright,
+%             boxrule=0.5pt,
+%             sharp corners,
+%             left=2pt, right=2pt,
+%             width=\linewidth,
+%             nobeforeafter
+%         ]
+%             \textbf{\textcolor{blue!60!black}{Step 1:}} Compute Third Time Derivatives\\
+%             We differentiate the quadrupole moments three times.\\
+%             Q(t) \textasciitilde{} \textbackslash frac\{1\}\{2\} \textbackslash cos(2\textbackslash Omega t)
+%             \vspace{1em}
+            
+%             First deriv:  \textasciitilde{} \textbackslash frac\{1\}\{2\} * (2\textbackslash Omega) = \textbackslash Omega\\
+            
+%             % ERROR HIGHLIGHT
+%             \vspace{0.3em}
+%             \colorbox{red!15}{\parbox{\linewidth}{\textcolor{red!80!black}{\textbf{ERROR}: Failed chain rule (missing factor of 2)}}}\\
+%             \vspace{0.3em}
+            
+%             Second deriv: \textasciitilde{} \textbackslash Omega * (\textbackslash Omega) = \textbackslash Omega\^2\\
+%             Third deriv:  \textasciitilde{} \textbackslash Omega\^2 * (2\textbackslash Omega) = 2\textbackslash Omega\^3
+%             \vspace{1em}
+            
+%             Resulting Coefficient: A = 2
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{blue!60!black}{Step 2:}} Square and Sum\\
+%             We square the coefficient found in Step 1.\\
+%             Square: A\^2 = 2\^2 = 4
+%             \vspace{0.5em}
+            
+%             Summing over the non-zero components (diagonal and off-diagonal contribute equally):\\
+%             Sum = 4 (from diagonal) + 4 (from off-diagonal) = 8
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{blue!60!black}{Step 3:}} Apply Formula\\
+%             \textbackslash mathcal\{P\} = \textbackslash frac\{1\}\{5\} * Sum * (constants)\\
+%             \textbackslash xi = \textbackslash frac\{8\}\{5\} = 1.6
+%             \vspace{1em}
+            
+%             \textbf{Predicted Answer: [A] 1.6 (Incorrect)}
+%         \end{tcolorbox}
+%     \end{minipage}%
+%     \hfill
+%     \begin{minipage}[t]{0.49\linewidth}
+%         \vspace{0pt}
+%         % --- RL-FINETUNED MODEL (RIGHT) ---
+%         \begin{tcolorbox}[
+%             title={\small \textbf{RL-FINETUNED MODEL}},
+%             colframe=green!50!black,
+%             colback=green!5!white,
+%             coltitle=white,
+%             fontupper=\scriptsize\ttfamily\raggedright,
+%             boxrule=0.5pt,
+%             sharp corners,
+%             left=2pt, right=2pt,
+%             width=\linewidth,
+%             nobeforeafter
+%         ]
+%             \textbf{\textcolor{green!40!black}{Step 1:}} Compute Third Time Derivatives\\
+%             We apply the chain rule consistently for the third derivative.\\
+%             Q(t) \textasciitilde{} \textbackslash frac\{1\}\{2\} \textbackslash cos(2\textbackslash Omega t)
+%             \vspace{1em}
+            
+%             First deriv:  \textbackslash frac\{1\}\{2\} * (-2\textbackslash Omega) \textbackslash sin(2\textbackslash Omega t)\\
+%             Second deriv: \textbackslash frac\{1\}\{2\} * (-4\textbackslash Omega\^2) \textbackslash cos(2\textbackslash Omega t)\\
+%             Third deriv:  \textbackslash frac\{1\}\{2\} * (8\textbackslash Omega\^3) \textbackslash sin(2\textbackslash Omega t)
+%             \vspace{1em}
+            
+%             Resulting Coefficient: A = 4
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{green!40!black}{Step 2:}} Square and Sum\\
+%             We square the coefficient found in Step 1.\\
+%             Square: A\^2 = 4\^2 = 16
+%             \vspace{0.5em}
+            
+%             Summing over the components (using \textbackslash sin\^2 + \textbackslash cos\^2 = 1 identity):\\
+%             Sum = 16 (from diagonal) + 16 (from off-diagonal) = 32
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{green!40!black}{Step 3:}} Apply Formula\\
+%             \textbackslash mathcal\{P\} = \textbackslash frac\{1\}\{5\} * Sum * (constants)\\
+%             \textbackslash xi = \textbackslash frac\{32\}\{5\} = 6.4
+%             \vspace{1em}
+            
+%             \textbf{Predicted Answer: [C] 6.4 (Correct)}
+%         \end{tcolorbox}
+%     \end{minipage}
+
+% \end{tcolorbox}
+% \captionof{figure}{\textbf{LLM answers before (left) and after (right) RL finetuning.} Question adapted from IPhO 2018 Question 1 ``LIGO-GW150914''.}
+%     \label{fig:ipho_2018_q1}
+% \end{minipage}
+
+\begin{minipage}{\linewidth}
+\begin{tcolorbox}[
+    title={\textbf{IPhO 2018 Q1}},
+    colback=white,
+    colframe=gray!50!black,
+    arc=3pt,
+    boxrule=1pt,
+    fonttitle=\sffamily\large,
+    width=\linewidth
+]
+
+    % --- QUESTION SECTION ---
+    \begin{tcolorbox}[
+        colback=gray!5,
+        colframe=gray!20,
+        coltitle=black,
+        title={\small \textbf{QUESTION}},
+        fontupper=\small\sffamily,
+        boxrule=0.5pt,
+        sharp corners,
+        left=3pt, right=3pt, top=3pt, bottom=3pt
+    ]
+        Calculate the dimensionless coefficient $\xi$ for the power $\mathcal{P}$ emitted in gravitational waves by a binary system.
+        \vspace{0.5em}
+        
+        \textbf{Formula:}
+        \[ \mathcal{P} = \frac{G}{5 c^{5}} \sum_{i,j} \left(\frac{\mathrm{d}^{3} Q_{i j}}{\mathrm{d} t^{3}}\right)^2 = \xi \frac{G}{c^5} \mu^2 L^4 \Omega^6 \]
+        
+        \textbf{Given Quadrupole Moments} (where $k = 2\Omega$):\\
+        $Q_{ii} = \frac{\mu L^2}{2} (a_i + b_i \cos kt)$ \quad and \quad $Q_{ij} = \frac{\mu L^2}{2} c_{ij} \sin kt$ \ (for $i \neq j$)
+        \vspace{0.5em}
+        
+        \textbf{Parameters:}\\
+        $b_1 = 1, b_2 = -1, b_3 = 0$; \quad $c_{12} = c_{21} = 1$ (others 0).
+        \vspace{0.5em}
+        
+        The value of $\xi$ is: \quad
+        \textbf{[A]} 1.6 \quad \textbf{[B]} 3.2 \quad \textbf{[C]} 6.4 \quad \textbf{[D]} 12.8
+    \end{tcolorbox}
+
+    \vspace{0.5em}
+
+    % --- SIDE-BY-SIDE LAYOUT ---
+    \noindent
+    \begin{minipage}[t]{0.49\linewidth}
+        \vspace{0pt}
+        % --- BASE MODEL (LEFT) ---
+        \begin{tcolorbox}[
+            title={\small \textbf{BASE MODEL}},
+            colframe=blue!60!white,
+            colback=blue!5!white,
+            coltitle=white,
+            fontupper=\small\ttfamily\raggedright,
+            boxrule=0.5pt,
+            sharp corners,
+            left=2pt, right=2pt,
+            width=\linewidth,
+            nobeforeafter
+        ]
+            \textbf{\textcolor{blue!60!black}{Step 1:}} Compute Third Time Derivatives\\
+            We differentiate the quadrupole moments three times.\\
+            $Q(t) \sim \frac{1}{2} \cos(2\Omega t)$
+            \vspace{1em}
+            
+            First deriv:  $\sim \frac{1}{2} \cdot (2\Omega) = \Omega$\\
+            
+            % ERROR HIGHLIGHT
+            \vspace{0.3em}
+            \colorbox{red!15}{\parbox{\linewidth}{\textcolor{red!80!black}{\textbf{ERROR}: Failed chain rule (missing factor of 2)}}}\\
+            \vspace{0.3em}
+            
+            Second deriv: $\sim \Omega \cdot (\Omega) = \Omega^2$\\
+            Third deriv:  $\sim \Omega^2 \cdot (2\Omega) = 2\Omega^3$
+            \vspace{1em}
+            
+            Resulting Coefficient: $A = 2$
+            \vspace{1em}
+            
+            \textbf{\textcolor{blue!60!black}{Step 2:}} Square and Sum\\
+            We square the coefficient found in Step 1.\\
+            Square: $A^2 = 2^2 = 4$
+            \vspace{0.5em}
+            
+            Summing over the non-zero components (diagonal and off-diagonal contribute equally):\\
+            Sum $= 4$ (from diagonal) $+ 4$ (from off-diagonal) $= 8$
+            \vspace{1em}
+            
+            \textbf{\textcolor{blue!60!black}{Step 3:}} Apply Formula\\
+            $\mathcal{P} = \frac{1}{5} \cdot \text{Sum} \cdot (\text{constants})$\\
+            $\xi = \frac{8}{5} = 1.6$
+            \vspace{1em}
+            
+            \textbf{Predicted Answer: [A] 1.6 (Incorrect)}
+        \end{tcolorbox}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \vspace{0pt}
+        % --- RL-FINETUNED MODEL (RIGHT) ---
+        \begin{tcolorbox}[
+            title={\small \textbf{RL-FINETUNED MODEL}},
+            colframe=green!50!black,
+            colback=green!5!white,
+            coltitle=white,
+            fontupper=\small\ttfamily\raggedright,
+            boxrule=0.5pt,
+            sharp corners,
+            left=2pt, right=2pt,
+            width=\linewidth,
+            nobeforeafter
+        ]
+            \textbf{\textcolor{green!40!black}{Step 1:}} Compute Third Time Derivatives\\
+            We apply the chain rule consistently for the third derivative.\\
+            $Q(t) \sim \frac{1}{2} \cos(2\Omega t)$
+            \vspace{1em}
+            
+            First deriv:  $\frac{1}{2} \cdot (-2\Omega) \sin(2\Omega t)$\\
+            Second deriv: $\frac{1}{2} \cdot (-4\Omega^2) \cos(2\Omega t)$\\
+            Third deriv:  $\frac{1}{2} \cdot (8\Omega^3) \sin(2\Omega t)$
+            \vspace{1em}
+            
+            Resulting Coefficient: $A = 4$
+            \vspace{1em}
+            
+            \textbf{\textcolor{green!40!black}{Step 2:}} Square and Sum\\
+            We square the coefficient found in Step 1.\\
+            Square: $A^2 = 4^2 = 16$
+            \vspace{0.5em}
+            
+            Summing over the components (using $\sin^2 + \cos^2 = 1$ identity):\\
+            Sum $= 16$ (from diagonal) $+ 16$ (from off-diagonal) $= 32$
+            \vspace{1em}
+            
+            \textbf{\textcolor{green!40!black}{Step 3:}} Apply Formula\\
+            $\mathcal{P} = \frac{1}{5} \cdot \text{Sum} \cdot (\text{constants})$\\
+            $\xi = \frac{32}{5} = 6.4$
+            \vspace{1em}
+            
+            \textbf{Predicted Answer: [C] 6.4 (Correct)}
+        \end{tcolorbox}
+    \end{minipage}
+
+\end{tcolorbox}
+\captionof{figure}{\textbf{LLM answers before (left) and after (right) RL finetuning.} Question adapted from IPhO 2018 Question 1 ``LIGO-GW150914''.}
+    \label{fig:ipho_2018_q1}
+\end{minipage}

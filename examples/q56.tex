@@ -1,0 +1,453 @@
+% % \begin{figure}[h!]
+% % \begin{tcolorbox}[colback=white,colframe=blue!40!black,boxrule=0.6pt,arc=3pt]
+% % \small
+% % \textcolor{blue}{\textbf{Question}}\\[4pt]
+% % The most frequent orbital maneuvers performed by spacecraft consist of velocity variations along the direction of flight, namely accelerations to reach higher orbits or brakings done to initiate re-entry into the atmosphere. In this problem, we will study the orbital variations when the engine thrust is applied in a radial direction.
+
+% % To obtain numerical values, use:
+% % \[
+% % R_T = 6.37 \times 10^6~\text{m}, \quad
+% % g = 9.81~\text{m/s}^2, \quad
+% % T_0 = 24.0~\text{h}
+% % \]
+% % where \(R_T\) is the Earth's radius, \(g\) the surface gravity, and \(T_0\) the length of the sidereal day.
+
+% % We consider a geosynchronous communications satellite of mass \(m\) placed in an equatorial circular orbit of radius \(r_0\). These satellites have an \emph{apogee engine} that provides the tangential thrusts needed to reach the final orbit.
+
+% % Once this geosynchronous circular orbit has been reached (see Figure~F-1), the satellite has been stabilized in the desired location and is being readied to perform its mission. However, an error by the ground controllers causes the apogee engine to be fired again. The thrust happens to be directed towards the Earth, and despite the quick reaction of the ground crew to shut the engine off, an unwanted velocity variation \(\Delta v\) is imparted on the satellite.
+
+% % We characterize this boost by the parameter:
+% % \[
+% % \beta = \frac{\Delta v}{v_0}
+% % \]
+% % where \(v_0\) is the orbital velocity in the circular geosynchronous orbit. The duration of the engine burn is negligible compared to any orbital timescale, so it can be treated as instantaneous.
+
+% % \textbf{Task:} Calculate the minimum boost parameter \(\beta_{\text{esc}}\) needed for the satellite to escape Earth's gravity.
+% % \\[6pt]
+
+% % \textcolor{blue}{\textbf{Ground Truth Answer:}} 1\\[8pt]
+
+% % \end{tcolorbox}
+% % \caption{IPhO 2005 Q1: An ill fated satelite}
+% % \label{fig:ipho_2005_q1}
+% % \end{figure}
+
+% % \begin{figure}[t]
+% % \centering
+% % \begin{minipage}{0.49\textwidth}
+% % \begin{tcolorbox}[colback=white,colframe=blue!40!black,boxrule=0.6pt,arc=3pt]  
+% % \tiny
+% % To calculate the minimum boost parameter \(\beta_{\text{esc}}\) needed for the satellite to escape Earth’s gravity, we will start by considering the energy conservation and escape velocity conditions.
+
+% % \textbf{1. Orbital velocity of the satellite in the initial circular orbit:}
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % v_0 = \sqrt{\frac{GM_E}{r_0}}
+% % \]}
+% % Here, \(G\) is the gravitational constant, \(M_E\) is the mass of the Earth, and \(r_0\) is the initial orbit radius.
+
+% % \textbf{2. Escape velocity condition for a geosynchronous satellite:}
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % v_{\text{esc}} = \sqrt{\frac{2GM_E}{r}}
+% % \]}
+% % For the satellite to escape Earth's gravity, the velocity after the impulse must be at least the escape velocity from the orbit radius \(r_0\):
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % v_{\text{after}} \geq v_{\text{esc}}
+% % \]}
+% % Given the initial orbit velocity \(v_0\), the satellite’s velocity after an impulsive radial thrust \(\Delta v\) directed towards the center of the Earth becomes:
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % v_{\text{after}} = v_0 + \Delta v
+% % \]}
+% % Substituting \(\Delta v = \Delta v_{\text{radial}}\):
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % v_{\text{after}} = \sqrt{\frac{GM_E}{r_0}} - \Delta v
+% % \]}
+% % Since the thrust is directed radially inward, the effective velocity becomes reduced by \(\Delta v\):
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % v_{\text{after}} = \sqrt{\frac{GM_E}{r_0}} - \Delta v
+% % \]}
+% % This must be at least the escape velocity from that point:
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % \sqrt{\frac{GM_E}{r_0}} - \Delta v \geq \sqrt{\frac{2GM_E}{r_0}}
+% % \]}
+
+% % \textbf{3. Expressing \(\Delta v\) in terms of \(\beta\):}
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % \Delta v = \beta v_0 = \beta \sqrt{\frac{GM_E}{r_0}}
+% % \]}
+
+% % \textbf{4. Solving for \(\beta\):}
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % \sqrt{\frac{GM_E}{r_0}} - \beta \sqrt{\frac{GM_E}{r_0}} \geq \sqrt{\frac{2GM_E}{r_0}}
+% % \]}
+% % Factoring out \(\sqrt{\frac{GM_E}{r_0}}\):
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % (1 - \beta) \sqrt{\frac{GM_E}{r_0}} \geq \sqrt{\frac{2GM_E}{r_0}}
+% % \]}
+% % Simplifying:
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % 1 - \beta \geq \sqrt{2}
+% % \]
+% % \[
+% % 1 - \sqrt{2} \geq \beta
+% % \]}
+% % Since \(\sqrt{2} \approx 1.41\):
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % \beta \leq 1 - \sqrt{2} \approx -0.41
+% % \]}
+% % Since \(\beta\) must be positive for an escape scenario:
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % \beta \geq \sqrt{2} - 1
+% % \]}
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % \beta \geq 1.41 - 1 = 0.41
+% % \]}
+
+% % Therefore, the minimum boost parameter:
+% % \[
+% % \boxed{\beta_{\text{esc}} = \sqrt{2} - 1 \approx 0.41}
+% % \]
+% % \end{tcolorbox}
+
+% % \end{minipage}
+% % \hfill
+% % \begin{minipage}{0.49\textwidth}
+% % \begin{tcolorbox}[colback=white,colframe=blue!40!black,boxrule=0.6pt,arc=3pt]
+% % \tiny
+% % To determine the minimum boost parameter \(\beta_{\text{esc}}\) needed for the satellite to escape Earth's gravity, we need to analyze the change in the satellite's velocity and its effect on the orbit.
+
+% % \textbf{1. Initial Conditions:}
+% % \begin{itemize}
+% %     \item The satellite is in a circular orbit with radius \(r_0\).
+% %     \item The initial velocity of the satellite in a circular orbit is given by:
+% %     {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% %     v_0 = \sqrt{\frac{GM}{r_0}}
+% %     \]}
+% %     where \(G\) is the gravitational constant and \(M\) is the mass of the Earth.
+% % \end{itemize}
+
+% % \textbf{2. Radial Velocity Change:}
+% % \begin{itemize}
+% %     \item An instantaneous radial velocity change \(\Delta v\) is applied towards the center of the orbit.
+% %     \item The parameter \(\beta\) is defined as:
+% %     {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% %     \beta = \frac{\Delta v}{v_0}
+% %     \]}
+% %     \item For the satellite to escape Earth's gravity, its total energy must become non-negative.
+% % \end{itemize}
+
+% % \textbf{3. Energy Considerations:}
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % E = K + U = \frac{1}{2}mv^2 - \frac{GMm}{r}
+% % \]}
+% % For a circular orbit:
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % E_0 = \frac{1}{2}mv_0^2 - \frac{GMm}{r_0} = -\frac{GMm}{2r_0}
+% % \]}
+% % After the radial velocity change, the new velocity vector has both radial and tangential components. For escape, total energy must be zero or positive.
+
+% % \textbf{4. Escape Velocity:}
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % v_{\text{esc}} = \sqrt{\frac{2GM}{r_0}}
+% % \]}
+% % The initial velocity in circular orbit is:
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % v_0 = \sqrt{\frac{GM}{r_0}}
+% % \]}
+% % To escape, the new velocity magnitude must be at least \(v_{\text{esc}}\). Since the change is purely radial:
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % v_{\text{new}} = \sqrt{v_0^2 + (\Delta v)^2} \geq v_{\text{esc}}
+% % \]}
+% % Substituting \(\Delta v = \beta v_0\):
+% % {\abovedisplayskip=4pt \belowdisplayskip=4pt\[
+% % \sqrt{\left(\sqrt{\frac{GM}{r_0}}\right)^2 + (\beta \sqrt{\frac{GM}{r_0}})^2} \geq \sqrt{\frac{2GM}{r_0}}
+% % \]
+% % \[
+% % \sqrt{\frac{GM}{r_0} (1 + \beta^2)} \geq \sqrt{\frac{2GM}{r_0}}
+% % \]
+% % \[
+% % \sqrt{1 + \beta^2} \geq \sqrt{2}
+% % \]
+% % \[
+% % 1 + \beta^2 \geq 2
+% % \]
+% % \[
+% % \beta^2 \geq 1
+% % \]
+% % \[
+% % \beta \geq 1
+% % \]}
+
+% % Therefore, the minimum boost parameter required is:
+% % \[
+% % \boxed{\beta_{\text{esc}} = 1}
+% % \]
+
+% % \end{tcolorbox}
+% % \end{minipage}
+% % \caption{LLM answers before (left) and after (right) RL finetuning to IPhO 2005 Q1 An ill fated satelite }
+% % \label{fig:ipho_2005_q1_ans}
+% % \end{figure}
+
+% \begin{minipage}{\linewidth} 
+%     \centering
+%     \begin{tcolorbox}[
+%         title={\textbf{IPhO 2005 Q1}},
+%         colback=white,
+%         colframe=gray!50!black,
+%         arc=3pt,
+%         boxrule=1pt,
+%         fonttitle=\sffamily\large,
+%         width=\linewidth
+%     ]
+    
+%         % --- QUESTION SECTION ---
+%         \begin{tcolorbox}[
+%             colback=gray!5,
+%             colframe=gray!20,
+%             coltitle=black,
+%             title={\small \textbf{QUESTION}},
+%             fontupper=\small\sffamily,
+%             boxrule=0.5pt,
+%             sharp corners,
+%             left=3pt, right=3pt, top=3pt, bottom=3pt
+%         ]
+%             A geosynchronous satellite of mass $m$ is in a circular orbit of radius $r_0$ with velocity $v_0$.
+%             \vspace{0.5em}
+            
+%             An error causes the engine to fire, providing an instantaneous radial thrust $\Delta v$ directed towards Earth. We characterize this boost by the parameter:
+%             \[ \beta = \frac{\Delta v}{v_0} \]
+            
+%             Task: Calculate the minimum boost parameter $\beta_{\text{esc}}$ needed for the satellite to escape Earth's gravity.
+%         \end{tcolorbox}
+    
+%         \vspace{0.5em}
+    
+%         % --- SIDE-BY-SIDE LAYOUT ---
+%         \noindent
+%         \begin{minipage}[t]{0.49\linewidth}
+%             \vspace{0pt}
+%             % --- BASE MODEL (LEFT) ---
+%             \begin{tcolorbox}[
+%                 title={\small \textbf{BASE MODEL}},
+%                 colframe=blue!60!white,
+%                 colback=blue!5!white,
+%                 coltitle=white,
+%                 fontupper=\scriptsize\ttfamily\raggedright,
+%                 boxrule=0.5pt,
+%                 sharp corners,
+%                 left=2pt, right=2pt,
+%                 width=\linewidth,
+%                 nobeforeafter
+%             ]
+%                 \textbf{\textcolor{blue!60!black}{Step 1:}} Orbital Velocity\\
+%                 $v_0 = \sqrt{GM_E / r_0}$
+%                 \vspace{1em}
+                
+%                 \textbf{\textcolor{blue!60!black}{Step 2:}} Escape Condition\\
+%                 Escape velocity: $v_{\text{esc}} = \sqrt{2GM_E / r_0}$\\
+%                 Condition: $v_{\text{after}} \geq v_{\text{esc}}$
+%                 \vspace{0.5em}
+                
+%                 Since the thrust is directed radially inward, the effective velocity becomes reduced:\\
+%                 $v_{\text{after}} = v_0 - \Delta v$
+                
+%                 % ERROR HIGHLIGHT
+%                 \vspace{0.3em}
+%                 \colorbox{red!15}{\parbox{\linewidth}{\textcolor{red!80!black}{\textbf{ERROR}: Linear subtraction. Fails to treat velocity as a vector (radial $\perp$ tangential).}}}
+%                 \vspace{0.3em}
+                
+%                 \textbf{\textcolor{blue!60!black}{Step 3:}} Solve for $\beta$\\
+%                 $\sqrt{GM/r} - \beta \sqrt{GM/r} \geq \sqrt{2GM/r}$\\
+%                 $(1 - \beta) \geq \sqrt{2}$\\
+%                 $1 - \sqrt{2} \geq \beta \implies \beta \approx -0.41$
+%                 \vspace{0.5em}
+                
+%                 (Model confuses signs and algebra)\\
+%                 $\beta \geq \sqrt{2} - 1 \approx 0.41$
+%                 \vspace{1em}
+                
+%                 \textbf{Final Answer:}\\\vspace{1em}
+%                 \boxed{\beta_{\text{esc}} = \sqrt{2} - 1 \approx 0.41} (Incorrect)
+%             \end{tcolorbox}
+%         \end{minipage}%
+%         \hfill
+%         \begin{minipage}[t]{0.49\linewidth}
+%             \vspace{0pt}
+%             % --- RL-FINETUNED MODEL (RIGHT) ---
+%             \begin{tcolorbox}[
+%                 title={\small \textbf{RL-FINETUNED MODEL}},
+%                 colframe=green!50!black,
+%                 colback=green!5!white,
+%                 coltitle=white,
+%                 fontupper=\scriptsize\ttfamily\raggedright,
+%                 boxrule=0.5pt,
+%                 sharp corners,
+%                 left=2pt, right=2pt,
+%                 width=\linewidth,
+%                 nobeforeafter
+%             ]
+%                 \textbf{\textcolor{green!40!black}{Step 1:}} Energy Analysis\\
+%                 Initial Energy: $E_0 = -GMm / 2r_0$\\
+%                 Escape Velocity needed: $v_{\text{esc}} = \sqrt{2GM / r_0}$
+%                 \vspace{1em}
+                
+%                 \textbf{\textcolor{green!40!black}{Step 2:}} Vector Addition\\
+%                 The kick is radial ($\Delta v$), perpendicular to the orbital velocity ($v_0$). The new velocity magnitude adds in quadrature:\\
+%                 $v_{\text{new}} = \sqrt{v_0^2 + (\Delta v)^2}$
+%                 \vspace{1em}
+                
+%                 \textbf{\textcolor{green!40!black}{Step 3:}} Escape Condition\\
+%                 $v_{\text{new}} \geq v_{\text{esc}}$\\
+%                 $\sqrt{v_0^2 + (\Delta v)^2} \geq \sqrt{2} v_0$
+%                 \vspace{0.5em}
+                
+%                 Substitute $\Delta v = \beta v_0$:\\
+%                 $\sqrt{v_0^2 + \beta^2 v_0^2} \geq \sqrt{2} v_0$\\
+%                 $\sqrt{1 + \beta^2} \geq \sqrt{2}$
+%                 \vspace{1em}
+                
+%                 \textbf{\textcolor{green!40!black}{Step 4:}} Solve for $\beta$\\
+%                 $1 + \beta^2 \geq 2$\\
+%                 $\beta^2 \geq 1 \implies \beta \geq 1$
+%                 \vspace{1em}
+                
+%                 \textbf{Final Answer:}\\\vspace{1em}
+%                 \boxed{\beta_{\text{esc}} = 1} (Correct)
+%             \end{tcolorbox}
+%         \end{minipage}
+%     \end{tcolorbox}
+%     \captionof{figure}{\textbf{LLM answers before (left) and after (right) RL finetuning.} Question adapted from IPhO 2005 Q1 ``An Ill Fated Satellite''.}
+%     \label{fig:ipho_2005_q1}
+% \end{minipage}
+
+\begin{minipage}[t!]{\linewidth} 
+    \centering
+    \begin{tcolorbox}[
+        title={\textbf{IPhO 2005 Q1}},
+        colback=white,
+        colframe=gray!50!black,
+        arc=3pt,
+        boxrule=1pt,
+        fonttitle=\sffamily\large,
+        width=\linewidth
+    ]
+    
+        % --- QUESTION SECTION ---
+        \begin{tcolorbox}[
+            colback=gray!5,
+            colframe=gray!20,
+            coltitle=black,
+            title={\small \textbf{QUESTION}},
+            fontupper=\small\sffamily,
+            boxrule=0.5pt,
+            sharp corners,
+            left=3pt, right=3pt, top=3pt, bottom=3pt
+        ]
+            A geosynchronous satellite of mass $m$ is in a circular orbit of radius $r_0$ with velocity $v_0$.
+            \vspace{0.5em}
+            
+            An error causes the engine to fire, providing an instantaneous radial thrust $\Delta v$ directed towards Earth. We characterize this boost by the parameter:
+            \[ \beta = \frac{\Delta v}{v_0} \]
+            
+            Task: Calculate the minimum boost parameter $\beta_{\text{esc}}$ needed for the satellite to escape Earth's gravity.
+        \end{tcolorbox}
+    
+        \vspace{0.5em}
+    
+        % --- SIDE-BY-SIDE LAYOUT ---
+        \noindent
+        \begin{minipage}[t]{0.49\linewidth}
+            \vspace{0pt}
+            % --- BASE MODEL (LEFT) ---
+            \begin{tcolorbox}[
+                title={\small \textbf{BASE MODEL}},
+                colframe=blue!60!white,
+                colback=blue!5!white,
+                coltitle=white,
+                fontupper=\small\ttfamily\raggedright,
+                boxrule=0.5pt,
+                sharp corners,
+                left=2pt, right=2pt,
+                width=\linewidth,
+                nobeforeafter
+            ]
+                \textbf{\textcolor{blue!60!black}{Step 1:}} Orbital Velocity\\
+                $v_0 = \sqrt{GM_E / r_0}$
+                \vspace{1em}
+                
+                \textbf{\textcolor{blue!60!black}{Step 2:}} Escape Condition\\
+                Escape velocity: $v_{\text{esc}} = \sqrt{2GM_E / r_0}$\\
+                Condition: $v_{\text{after}} \geq v_{\text{esc}}$
+                \vspace{0.5em}
+                
+                Since the thrust is directed radially inward, the effective velocity becomes reduced:\\
+                $v_{\text{after}} = v_0 - \Delta v$
+                
+                % ERROR HIGHLIGHT
+                \vspace{0.3em}
+                \colorbox{red!15}{\parbox{\linewidth}{\textcolor{red!80!black}{\textbf{ERROR}: Linear subtraction. Fails to treat velocity as a vector (radial $\perp$ tangential).}}}
+                \vspace{0.3em}
+                
+                \textbf{\textcolor{blue!60!black}{Step 3:}} Solve for $\beta$\\
+                $\sqrt{GM/r} - \beta \sqrt{GM/r} \geq \sqrt{2GM/r}$\\
+                $(1 - \beta) \geq \sqrt{2}$\\
+                $1 - \sqrt{2} \geq \beta \implies \beta \approx -0.41$
+                \vspace{0.5em}
+                
+                (Model confuses signs and algebra)\\
+                $\beta \geq \sqrt{2} - 1 \approx 0.41$
+                \vspace{1em}
+                
+                \textbf{Final Answer:}\\\vspace{1em}
+                \boxed{\beta_{\text{esc}} = \sqrt{2} - 1 \approx 0.41} (Incorrect)
+            \end{tcolorbox}
+        \end{minipage}%
+        \hfill
+        \begin{minipage}[t]{0.49\linewidth}
+            \vspace{0pt}
+            % --- RL-FINETUNED MODEL (RIGHT) ---
+            \begin{tcolorbox}[
+                title={\small \textbf{RL-FINETUNED MODEL}},
+                colframe=green!50!black,
+                colback=green!5!white,
+                coltitle=white,
+                fontupper=\small\ttfamily\raggedright,
+                boxrule=0.5pt,
+                sharp corners,
+                left=2pt, right=2pt,
+                width=\linewidth,
+                nobeforeafter
+            ]
+                \textbf{\textcolor{green!40!black}{Step 1:}} Energy Analysis\\
+                Initial Energy: $E_0 = -GMm / 2r_0$\\
+                Escape Velocity needed: $v_{\text{esc}} = \sqrt{2GM / r_0}$
+                \vspace{1em}
+                
+                \textbf{\textcolor{green!40!black}{Step 2:}} Vector Addition\\
+                The kick is radial ($\Delta v$), perpendicular to the orbital velocity ($v_0$). The new velocity magnitude adds in quadrature:\\
+                $v_{\text{new}} = \sqrt{v_0^2 + (\Delta v)^2}$
+                \vspace{1em}
+                
+                \textbf{\textcolor{green!40!black}{Step 3:}} Escape Condition\\
+                $v_{\text{new}} \geq v_{\text{esc}}$\\
+                $\sqrt{v_0^2 + (\Delta v)^2} \geq \sqrt{2} v_0$
+                \vspace{0.5em}
+                
+                Substitute $\Delta v = \beta v_0$:\\
+                $\sqrt{v_0^2 + \beta^2 v_0^2} \geq \sqrt{2} v_0$\\
+                $\sqrt{1 + \beta^2} \geq \sqrt{2}$
+                \vspace{1em}
+                
+                \textbf{\textcolor{green!40!black}{Step 4:}} Solve for $\beta$\\
+                $1 + \beta^2 \geq 2$\\
+                $\beta^2 \geq 1 \implies \beta \geq 1$
+                \vspace{1em}
+                
+                \textbf{Final Answer:}\\\vspace{1em}
+                \boxed{\beta_{\text{esc}} = 1} (Correct)
+            \end{tcolorbox}
+        \end{minipage}
+    \end{tcolorbox}
+    \captionof{figure}{\textbf{LLM answers before (left) and after (right) RL finetuning.} Question adapted from IPhO 2005 Q1 ``An Ill Fated Satellite''.}
+    \label{fig:ipho_2005_q1}
+\end{minipage}

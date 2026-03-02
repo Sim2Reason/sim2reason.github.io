@@ -1,0 +1,43 @@
+{
+    "title": "IPhO 2012 Question 1 — \"Focus on sketches\"",
+    "question": "A ball is thrown with fixed speed $v_0$ in a uniform gravitational field $g$.\n\nBy adjusting the launch angle, the ball can reach any target **within** the region:\n$$z \\leq z_0 - k\\, x^2$$\n\nFind the constants $z_0$ and $k$ in terms of $v_0$ and $g$.",
+    "base": [
+        {
+            "type": "step",
+            "label": "Step 1: Write trajectory equation",
+            "text": "The trajectory for launch angle $\\theta$ is:\n$$z = x\\tan\\theta - \\frac{g x^2}{2v_0^2\\cos^2\\theta}$$"
+        },
+        {
+            "type": "error",
+            "label": "Step 2: Match to boundary — WRONG ASSUMPTION ✗",
+            "text": "The model **confuses a single trajectory with the envelope**. It substitutes $\\theta = 45°$ directly:\n$$k = \\frac{g}{2v_0^2 \\cos^2(45°)} = \\frac{g}{v_0^2}$$\nThis gives the 45° trajectory, **not** the boundary of all trajectories."
+        },
+        {
+            "type": "wrong",
+            "label": "Answer: $z_0 = v_0^2/2g$, $k = g/v_0^2$ ✗",
+            "text": "$z_0$ is correct but $k$ is **off by a factor of 2**."
+        }
+    ],
+    "rl": [
+        {
+            "type": "step",
+            "label": "Step 1: Recognize this is an envelope problem",
+            "text": "The boundary is **not** a specific trajectory — it's the outer limit of all possible trajectories. Two edge cases uniquely determine $z_0$ and $k$."
+        },
+        {
+            "type": "step",
+            "label": "Step 2: Find $z_0$ — maximum height",
+            "text": "At $x = 0$, launch straight up ($\\theta = 90°$). By energy conservation:\n$$z_0 = \\frac{v_0^2}{2g}$$"
+        },
+        {
+            "type": "step",
+            "label": "Step 3: Find $k$ — boundary touches ground at max range",
+            "text": "Max range occurs at $\\theta = 45°$: $x_{\\rm max} = v_0^2/g$. Since $(z=0,\\; x=v_0^2/g)$ lies on the boundary:\n$$0 = \\frac{v_0^2}{2g} - k\\left(\\frac{v_0^2}{g}\\right)^2 \\implies k = \\frac{g}{2v_0^2}$$"
+        },
+        {
+            "type": "correct",
+            "label": "Answer: $z_0 = v_0^2/2g$, $k = g/2v_0^2$ ✓",
+            "text": "By correctly identifying the envelope geometry, $k$ is half the base model's value."
+        }
+    ]
+}

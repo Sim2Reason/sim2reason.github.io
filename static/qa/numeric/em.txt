@@ -1,0 +1,12 @@
+<description>
+A charged particle with charge 1.04 C and mass 1.12 kg is initially launched in the space. It has an initial velocity of -0.79 m/s in the x-direction and 2.03 m/s in the y-direction. 
+There is a electric field whose strength varies with the position as f_x = 1.27 / Δr^2 and direction is along the Δr vector. Δr refers to the position vector from (1.17, 1.74) m to the point.
+The charged particle is only affected by the fields mentioned. Forces by other charged particles or gravity are negligible. The particle is not affected by any other forces.
+</description>
+<question>
+What is the magnitude of the acceleration of the charged particle after 7.67 seconds?
+</question>
+
+<answer>
+0.004071092556880836
+</answer>

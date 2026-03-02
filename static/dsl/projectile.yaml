@@ -1,0 +1,17 @@
+scene:
+  name: "Throwing-Motion-Collision Scene"
+  tag: IPhOProjectileMotion
+  entities:
+    - name: "throwing_motion_system"
+      type: "ThrowingMotionEntity"
+      position: [0.0, 0.0, 0.0]
+      parameters:
+        initial_height: 0
+        initial_speed: 10
+        initial_angle: 80
+        initial_angular_velocity: 0
+        ball_mass: 6.0
+        ball_radius: 0.1
+        coefficient_of_friction: 0.0
+        resolution_coefficient_list:
+          - ["throwing_motion_system.ball", "throwing_motion_system.plane", 0.8]

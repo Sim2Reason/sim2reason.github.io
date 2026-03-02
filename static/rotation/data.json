@@ -1,0 +1,38 @@
+{
+    "title": "JEE Advanced 2023 Paper 1",
+    "question": "A small mass ($m = 0.10$ kg) moving at $u = 5.00$ m/s collides **elastically** with a bar ($M = 1.00$ kg, $L = 0.20$ m) pivoted at one end. The collision occurs at $L/2$ from the pivot.\n\n**Given:** $I_{\\rm bar} = ML^2/3$ (about pivot)\n\nThe velocity of the small mass **after** the collision is closest to:\n\n**(A)** 4.30 m/s &emsp; **(B)** 5.00 m/s &emsp; **(C)** −2.50 m/s &emsp; **(D)** 2.15 m/s",
+    "base": [
+        {
+            "type": "error",
+            "label": "Step 1: Angular momentum — ARITHMETIC ERROR ✗",
+            "text": "$$L_{\\rm init} = m \\cdot u \\cdot \\frac{L}{2} = 0.1 \\times 5.0 \\times 0.1 = 0.005\\text{ kg m}^2/\\text{s}$$\nCorrect value is **0.05**, not 0.005 — a factor-of-10 arithmetic slip that cascades through the rest."
+        },
+        {
+            "type": "error",
+            "label": "Step 2: Energy conservation — DOUBLE COUNTING ✗",
+            "text": "The model writes $KE_{\\rm bar} = \\tfrac{1}{2}I_{\\rm pivot}\\omega^2 + \\tfrac{1}{2}Mv_{\\rm cm}^2$, **double-counting** the kinetic energy. $I_{\\rm pivot}$ already accounts for the motion of the center of mass — adding $\\tfrac{1}{2}Mv_{\\rm cm}^2$ counts it twice."
+        },
+        {
+            "type": "wrong",
+            "label": "Answer: (B) 5.00 m/s ✗",
+            "text": "The model attempts to fit values to the corrupted equations and hallucinates a match to (B)."
+        }
+    ],
+    "rl": [
+        {
+            "type": "step",
+            "label": "Step 1: Conservation of angular momentum (correct)",
+            "text": "$$L_{\\rm init} = m \\cdot u \\cdot \\frac{L}{2} = 0.10 \\times 5.00 \\times 0.10 = 0.05\\text{ kg m}^2/\\text{s}$$\n$$0.05 = \\underbrace{\\tfrac{1}{3}(1.0)(0.2)^2}_{I_{\\rm pivot}}\\omega + 0.1 \\cdot v \\cdot 0.1$$"
+        },
+        {
+            "type": "step",
+            "label": "Step 2: Conservation of kinetic energy (correct)",
+            "text": "For rotation about a fixed pivot, KE is **purely rotational** — no double counting:\n$$\\tfrac{1}{2}mu^2 = \\tfrac{1}{2}mv^2 + \\tfrac{1}{2}I_{\\rm pivot}\\omega^2$$\nSubstituting and solving: $\\omega \\approx 7.0$ rad/s, $v = 5 - 1.33\\omega \\approx 4.30$ m/s"
+        },
+        {
+            "type": "correct",
+            "label": "Answer: (A) 4.30 m/s ✓",
+            "text": "The velocity of the mass decreases slightly to 4.30 m/s, transferring angular momentum to the bar."
+        }
+    ]
+}

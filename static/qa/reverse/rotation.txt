@@ -1,0 +1,12 @@
+<description>
+In a system, there are 1 rigid bodies, that rotate around a hinge joint. These bodies are welded together, meaning they will always move together. The rigid bodies are as follows:
+ A Bar called 'bar_0' has a mass of x kg. It has a length of 1.5, width of 0.1, and height of 0.1.The center of the face at the negative end of the length axis is positioned at [0.0, 0.0, 0.0] m coordinatesand oriented such that its length, breadth and height as respectively along the vectors (1.0, 0.0, 0.0), (0.0, -1.0, 0.0), and (0.0, 0.0, -1.0). Note that the position coordinates and the angle represent the frame (not necessarily the COM).
+The hinge joint is located at [0.0, 0.0, 0.0] m coordinates. It allows rotation around the axis [0.0, 1.0, 0.0] given by the unit vector.
+</description>
+<question>
+What is the value of x given that the magnitude of linear acceleration of the COM of the bar_0 in the system? after 6.55 seconds is 1.19?
+</question>
+
+<answer>
+1.0
+</answer>

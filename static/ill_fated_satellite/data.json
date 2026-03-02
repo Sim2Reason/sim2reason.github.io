@@ -1,0 +1,48 @@
+{
+    "title": "IPhO 2005 Question 1 — \"An Ill Fated Satellite\"",
+    "question": "A geosynchronous satellite of mass $m$ is in a circular orbit of radius $r_0$ with orbital velocity $v_0$.\n\nAn error causes the apogee engine to fire, providing an **instantaneous radial thrust** $\\Delta v$ directed towards Earth. We characterize this boost by:\n$$\\beta = \\frac{\\Delta v}{v_0}$$\n\n**Calculate the minimum boost parameter $\\beta_{\\rm esc}$ needed for the satellite to escape Earth's gravity.**",
+    "base": [
+        {
+            "type": "step",
+            "label": "Step 1: Orbital velocity",
+            "text": "$v_0 = \\sqrt{GM_E / r_0}$"
+        },
+        {
+            "type": "error",
+            "label": "Step 2: Escape condition — LINEAR subtraction ✗",
+            "text": "Since the thrust is directed radially inward, the model treats the velocity as simply reduced:\n$$v_{\\rm after} = v_0 - \\Delta v$$\n**ERROR**: Velocity is a vector. A radial kick is perpendicular ($\\perp$) to the tangential orbital velocity — they cannot be linearly subtracted."
+        },
+        {
+            "type": "error",
+            "label": "Step 3: Flawed algebra ✗",
+            "text": "Setting $v_0 - \\Delta v \\geq v_{\\rm esc}$:\n$$(1 - \\beta) \\geq \\sqrt{2} \\implies \\beta \\approx -0.41$$\nConfusing signs, model flips to $\\beta \\geq \\sqrt{2} - 1 \\approx 0.41$."
+        },
+        {
+            "type": "wrong",
+            "label": "Answer: $\\beta_{\\rm esc} = \\sqrt{2} - 1 \\approx 0.41$ ✗",
+            "text": "Incorrect because it ignores the vector nature of velocity."
+        }
+    ],
+    "rl": [
+        {
+            "type": "step",
+            "label": "Step 1: Energy analysis",
+            "text": "Initial orbital energy: $E_0 = -GMm/2r_0$\nEscape velocity required: $v_{\\rm esc} = \\sqrt{2GM/r_0} = \\sqrt{2}\\, v_0$"
+        },
+        {
+            "type": "step",
+            "label": "Step 2: Vector addition — radial ⊥ tangential",
+            "text": "The radial kick $\\Delta v$ is **perpendicular** to the orbital velocity $v_0$, so speeds add in quadrature:\n$$v_{\\rm new} = \\sqrt{v_0^2 + (\\Delta v)^2}$$"
+        },
+        {
+            "type": "step",
+            "label": "Step 3: Apply escape condition",
+            "text": "$$\\sqrt{v_0^2 + \\beta^2 v_0^2} \\geq \\sqrt{2}\\, v_0$$\n$$\\sqrt{1 + \\beta^2} \\geq \\sqrt{2}$$\n$$\\beta^2 \\geq 1 \\implies \\beta \\geq 1$$"
+        },
+        {
+            "type": "correct",
+            "label": "Answer: $\\beta_{\\rm esc} = 1$ ✓",
+            "text": "By treating the radial impulse as a vector perpendicular to orbital motion, the correct answer follows cleanly."
+        }
+    ]
+}

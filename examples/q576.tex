@@ -1,0 +1,458 @@
+% % \begin{figure}[h!]
+% % \begin{tcolorbox}[colback=white,colframe=blue!40!black,boxrule=0.6pt,arc=3pt]
+% % \small
+% % \textcolor{blue}{\textbf{Question}}\\[4pt]
+% % A meteoroid is a small particle (typically smaller than $1~\mathrm{m}$) from a comet or an asteroid. A meteoroid that impacts the ground is called a meteorite. On the night of 17 January 2009, many people near the Baltic Sea saw the glowing trail or fireball of a meteoroid falling through the atmosphere of the Earth. In Sweden a surveillance camera recorded a video of the event, see Fig.~1.1(a). From these pictures and eyewitness accounts it was possible to narrow down the impact area, and six weeks later a meteorite with the mass $0.025~\mathrm{kg}$ was found in the vicinity of the town Maribo in southern Denmark. Measurements on the meteorite, now named Maribo, and its orbit in the sky showed interesting results. Its speed when entering the atmosphere had been exceptionally high. Its age, $4.567 \times 10^9~\mathrm{year}$, shows that it had been formed shortly after the birth of the solar system. The Maribo meteorite is possibly a part of Comet Encke. In its orbit around the Sun, the minimum and maximum distances between Comet Encke and the Sun are $a_{\min} = 4.95 \times 10^{10}~\mathrm{m}$ and $a_{\max} = 6.16 \times 10^{11}~\mathrm{m}$, respectively. Calculate the orbital period $t_{\mathrm{Encke}}$ of Comet Encke. Let's think step by step and output the final answer within $\boxed{}$. The final answer should be expressed using the International System of Units (SI) unless stated otherwise.\\[6pt]
+
+% % \textcolor{blue}{\textbf{Ground Truth Answer:}} $1.04 \times 10^8$\\[8pt]
+
+% % \end{tcolorbox}
+% % \label{fig:ipho_2013_q1}
+% % \caption{IPhO 2013 Q1: The Maribo Meteorite}
+% % \end{figure}
+
+% % \begin{figure}[t]
+% % \centering
+% % \begin{minipage}{0.49\textwidth}
+% % \begin{tcolorbox}[colback=white,colframe=blue!40!black,boxrule=0.6pt,arc=3pt]  
+% % \tiny
+
+% % To calculate the orbital period of Comet Encke, we use Kepler's Third Law of Planetary Motion. Kepler's Third Law states that the square of the orbital period (T) of a planet (or, in this case, of Comet Encke) is directly proportional to the cube of the semi-major axis (a) of its orbit. Mathematically, this is described by:
+
+% % \[
+% % T^2 = \frac{4\pi^2}{G(M+m)}a^3
+% % \]
+
+% % where \( T \) is the orbital period, \( G \) is the gravitational constant, \( M \) is the mass of the Sun, \( m \) is the mass of the comet (assuming \( M \gg m \), the mass of the comet is negligible), and \( a \) is the semi-major axis of the orbital ellipse.
+
+% % Since the mass of the Sun is much larger than that of the comet, \( M + m \) is essentially \( M \), and the term \( \frac{4\pi^2}{G(M)} \) simplifies to a constant \( k \) for orbiting bodies around the Sun. Thus, we have:
+
+% % \[
+% % T^2 = k \cdot a^3
+% % \]
+
+% % where the semi-major axis \( a \) can be calculated as the average of the minimum and maximum distances from the Sun, \( a_{\text{min}} \) and \( a_{\text{max}} \):
+
+% % \[
+% % a = \frac{a_{\text{min}} + a_{\text{max}}}{2}
+% % \]
+
+% % Firstly, let's calculate the semi-major axis:
+
+% % \[
+% % a_{\text{min}} = 4.95 \times 10^{10} \, \text{m}
+% % \]
+% % \[
+% % a_{\text{max}} = 6.16 \times 10^{11} \, \text{m}
+% % \]
+% % \[
+% % a = \frac{4.95 \times 10^{10} + 6.16 \times 10^{11}}{2} \, \text{m}
+% % \]
+% % \[
+% % a = \frac{4.95 \times 10^{10} + 61.6 \times 10^{10}}{2} \, \text{m}
+% % \]
+% % \[
+% % a = \frac{66.55 \times 10^{10}}{2} \, \text{m}
+% % \]
+% % \[
+% % a = 33.275 \times 10^{10} \, \text{m}
+% % \]
+
+% % Next, using Kepler's Third Law where we know that for objects orbiting the Sun, the constant \( k \) converts to \( T^2 = \frac{a^3}{\mu} \), where \( \mu \) is the standard gravitational parameter for the Sun, \( \mu = GM \):
+
+% % \[
+% % \mu = 1.32712440018 \times 10^{20} \, \text{m}^3 \text{s}^{-2}
+% % \]
+
+% % \[
+% % T^2 = \frac{(33.275 \times 10^{10})^3}{1.32712440018 \times 10^{20}}
+% % \]
+
+% % \[
+% % T^2 = \frac{3.7074 \times 10^{33}}{1.32712440018 \times 10^{20}} \, \text{s}^2
+% % \]
+
+% % \[
+% % T^2 \approx 2.794 \times 10^{13} \, \text{s}^2
+% % \]
+
+% % Taking the square root, we get the orbital period:
+
+% % \[
+% % T \approx \sqrt{2.794 \times 10^{13}} \, \text{s}
+% % \]
+% % \[
+% % T \approx 5.285 \times 10^{6} \, \text{s}
+% % \]
+% % \[
+% % T \approx 61.37 \, \text{days}
+% % \]
+
+% % Therefore, the orbital period of Comet Encke is:
+
+% % \[
+% % \boxed{61.37 \, \text{days}}
+% % \]
+% % \end{tcolorbox}
+
+% % \end{minipage}
+% % \hfill
+% % \begin{minipage}{0.49\textwidth}
+% % \begin{tcolorbox}[colback=white,colframe=blue!40!black,boxrule=0.6pt,arc=3pt]
+% % \tiny
+% % To calculate the orbital period $t_{\text{Encke}}$ of Comet Encke, we can use Kepler's Third Law. For an elliptical orbit, Kepler's Third Law states:
+
+% % \[
+% % T^2 = \frac{4\pi^2}{G(M_\odot + M)} a^3
+% % \]
+
+% % where:
+% % \begin{itemize}
+% %     \item $T$ is the orbital period,
+% %     \item $G$ is the gravitational constant,
+% %     \item $M_\odot$ is the mass of the Sun,
+% %     \item $M$ is the mass of the orbiting body (which is negligible compared to the Sun for comets),
+% %     \item $a$ is the semi-major axis of the orbit.
+% % \end{itemize}
+
+% % For Comet Encke, the semi-major axis $a$ can be calculated as the average of the minimum and maximum distances from the Sun:
+
+% % \[
+% % a = \frac{a_{\text{min}} + a_{\text{max}}}{2}
+% % \]
+
+% % Given:
+% % \[
+% % a_{\text{min}} = 4.95 \times 10^{10}~\text{m}, \quad
+% % a_{\text{max}} = 6.16 \times 10^{11}~\text{m}.
+% % \]
+
+% % Let's calculate the semi-major axis $a$:
+
+% % \[
+% % a = \frac{4.95 \times 10^{10} + 6.16 \times 10^{11}}{2}
+% % = \frac{4.95 \times 10^{10} + 61.6 \times 10^{10}}{2}
+% % \]
+% % \[
+% % = \frac{66.55 \times 10^{10}}{2}
+% % = 33.275 \times 10^{10}~\text{m}
+% % = 3.3275 \times 10^{11}~\text{m}.
+% % \]
+
+% % Now, using Kepler's Third Law for the Sun's mass $M_\odot$:
+
+% % \[
+% % T^2 = \frac{4\pi^2}{G M_\odot} a^3
+% % \]
+
+% % and
+
+% % \[
+% % T = 2\pi \sqrt{\frac{a^3}{G M_\odot}}.
+% % \]
+
+% % For simplicity, we can use the known relationship for orbital periods in astronomical units (AU) and years, then convert to seconds. First, convert $a$ to AU:
+
+% % \[
+% % 1~\text{AU} = 1.496 \times 10^{11}~\text{m}, \quad
+% % a = \frac{3.3275 \times 10^{11}}{1.496 \times 10^{11}} \approx 2.225~\text{AU}.
+% % \]
+
+% % Using Kepler's Third Law in AU and years:
+
+% % \[
+% % T^2 = a^3, \quad
+% % T^2 = (2.225)^3 \approx 10.96, \quad
+% % T \approx \sqrt{10.96} \approx 3.31~\text{yrs}.
+% % \]
+
+% % Convert years to seconds:
+
+% % \[
+% % 1~\text{year} = 3.154 \times 10^7~\text{seconds},
+% % \]
+% % \[
+% % T \approx 3.31 \times 3.154 \times 10^7 \approx 1.04 \times 10^8~\text{seconds}.
+% % \]
+
+% % Thus, the orbital period of Comet Encke is:
+
+% % \[
+% % \boxed{3.31~\text{years}}
+% % \]
+
+% % and expressed in seconds:
+
+% % \[
+% % \boxed{1.04 \times 10^8~\text{seconds}}.
+% % \]
+% % \end{tcolorbox}
+% % \end{minipage}
+% % \caption{LLM answers before (left) and after (right) RL finetuning to IPhO 2013 Q1 The Maribo Meteorite }
+% % \label{fig:ipho_2013_q1_ans}
+% % \end{figure}
+% % \textcolor{blue}{\textbf{}}\\[4pt]
+
+% % --- START OF EXAMPLE BLOCK 5 ---
+% \begin{minipage}{\linewidth}
+% \begin{tcolorbox}[
+%     title={\textbf{IPhO 2013 Q1}},
+%     colback=white,
+%     colframe=gray!50!black,
+%     arc=3pt,
+%     boxrule=1pt,
+%     fonttitle=\sffamily\large,
+%     width=\linewidth
+% ]
+
+%     % --- QUESTION SECTION ---
+%     \begin{tcolorbox}[
+%         colback=gray!5,
+%         colframe=gray!20,
+%         coltitle=black,
+%         title={\small \textbf{QUESTION}},
+%         fontupper=\small\sffamily,
+%         boxrule=0.5pt,
+%         sharp corners,
+%         left=3pt, right=3pt, top=3pt, bottom=3pt
+%     ]
+%         A meteoroid from Comet Encke impacted Earth (the Maribo meteorite). Measurements show the meteorite formed shortly after the solar system's birth.
+%         \vspace{0.5em}
+        
+%         In its orbit around the Sun, the minimum and maximum distances between Comet Encke and the Sun are:
+%         \[ a_{\min} = 4.95 \times 10^{10} \text{ m} \quad \text{and} \quad a_{\max} = 6.16 \times 10^{11} \text{ m} \]
+        
+%         Calculate the orbital period $t_{\text{Encke}}$ of Comet Encke. Express the final answer in SI units.
+%     \end{tcolorbox}
+
+%     \vspace{0.5em}
+
+%     % --- SIDE-BY-SIDE LAYOUT ---
+%     \noindent
+%     \begin{minipage}[t]{0.49\linewidth}
+%         \vspace{0pt}
+%         % --- BASE MODEL (LEFT) ---
+%         \begin{tcolorbox}[
+%             title={\small \textbf{BASE MODEL}},
+%             colframe=blue!60!white,
+%             colback=blue!5!white,
+%             coltitle=white,
+%             fontupper=\scriptsize\ttfamily\raggedright,
+%             boxrule=0.5pt,
+%             sharp corners,
+%             left=2pt, right=2pt,
+%             width=\linewidth,
+%             nobeforeafter
+%         ]
+%             \textbf{\textcolor{blue!60!black}{Step 1:}} Formula\\
+%             Use Kepler's Third Law:\\
+%             $T^2 = (4\pi^2 / GM) * a^3$
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{blue!60!black}{Step 2:}} Calculate Semi-major Axis\\
+%             $a = (a_{\min} + a_{\max}) / 2$\\
+%             $a = (4.95 \times 10^{10} + 6.16 \times 10^{11}) / 2$\\
+%             $a = 33.275 \times 10^{10}$ m
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{blue!60!black}{Step 3:}} Calculate Period\\
+%             Using $\mu = 1.327 \times 10^{20}$:\\
+%             $T^2 = (33.275 \times 10^{10})^3 / 1.327 \times 10^{20}$
+%             \vspace{0.5em}
+            
+%             $T^2 = 3.7074 \times 10^{33} / 1.327 \times 10^{20}$
+            
+%             % ERROR HIGHLIGHT
+%             \vspace{0.3em}
+%             \colorbox{red!15}{\parbox{\linewidth}{\textcolor{red!80!black}{\textbf{ERROR}: Arithmetic. $a^3 \approx 3.7 \times 10^{34}$ (Order of magnitude off).}}}
+%             \vspace{0.3em}
+            
+%             $T^2 \approx 2.794 \times 10^{13}$ s$^2$\\
+%             $T \approx 5.285 \times 10^6$ s\\
+%             $T \approx 61.37$ days
+%             \vspace{1em}
+            
+%             \textbf{Final Answer:}\\\vspace{1em}
+%             \boxed{61.37 \text{ days}} (Incorrect)
+%         \end{tcolorbox}
+%     \end{minipage}%
+%     \hfill
+%     \begin{minipage}[t]{0.49\linewidth}
+%         \vspace{0pt}
+%         % --- RL-FINETUNED MODEL (RIGHT) ---
+%         \begin{tcolorbox}[
+%             title={\small \textbf{RL-FINETUNED MODEL}},
+%             colframe=green!50!black,
+%             colback=green!5!white,
+%             coltitle=white,
+%             fontupper=\scriptsize\ttfamily\raggedright,
+%             boxrule=0.5pt,
+%             sharp corners,
+%             left=2pt, right=2pt,
+%             width=\linewidth,
+%             nobeforeafter
+%         ]
+%             \textbf{\textcolor{green!40!black}{Step 1:}} Calculate Semi-major Axis\\
+%             $a = (a_{\min} + a_{\max}) / 2$\\
+%             $a = (4.95 \times 10^{10} + 61.6 \times 10^{10}) / 2$\\
+%             $a = 3.3275 \times 10^{11}$ m
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{green!40!black}{Step 2:}} Unit Conversion Strategy\\
+%             Convert $a$ to Astronomical Units (AU) to simplify Kepler's Law ($T^2 = a^3$ in years/AU).\\
+%             1 AU = $1.496 \times 10^{11}$ m\\
+%             $a_{au} = 3.3275 \times 10^{11} / 1.496 \times 10^{11} \approx 2.225$ AU
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{green!40!black}{Step 3:}} Apply Kepler's Law\\
+%             $T^2 = (2.225)^3 \approx 10.96$\\
+%             $T \approx \sqrt{10.96} \approx 3.31$ years
+%             \vspace{1em}
+            
+%             \textbf{\textcolor{green!40!black}{Step 4:}} Convert to SI\\
+%             1 year = $3.154 \times 10^7$ seconds\\
+%             $T = 3.31 \times 3.154 \times 10^7$\\
+%             $T \approx 1.04 \times 10^8$ seconds
+%             \vspace{1em}
+            
+%             \textbf{Final Answer:}\\\vspace{1em}
+%             \boxed{1.04 \times 10^8 \text{ s}} (Correct)
+%         \end{tcolorbox}
+%     \end{minipage}
+
+% \end{tcolorbox}
+% \captionof{figure}{\textbf{LLM answers before (left) and after (right) RL finetuning.} Question adapted from IPhO 2013 Question 1 ``The Maribo Meteorite''.}
+%     \label{fig:ipho_2013_q1}
+% \end{minipage}
+% % --- END OF EXAMPLE BLOCK 5 ---
+
+\begin{minipage}{\linewidth}
+\begin{tcolorbox}[
+    title={\textbf{IPhO 2013 Q1}},
+    colback=white,
+    colframe=gray!50!black,
+    arc=3pt,
+    boxrule=1pt,
+    fonttitle=\sffamily\large,
+    width=\linewidth
+]
+
+    % --- QUESTION SECTION ---
+    \begin{tcolorbox}[
+        colback=gray!5,
+        colframe=gray!20,
+        coltitle=black,
+        title={\small \textbf{QUESTION}},
+        fontupper=\small\sffamily,
+        boxrule=0.5pt,
+        sharp corners,
+        left=3pt, right=3pt, top=3pt, bottom=3pt
+    ]
+        A meteoroid from Comet Encke impacted Earth (the Maribo meteorite). Measurements show the meteorite formed shortly after the solar system's birth.
+        \vspace{0.5em}
+        
+        In its orbit around the Sun, the minimum and maximum distances between Comet Encke and the Sun are:
+        \[ a_{\min} = 4.95 \times 10^{10} \text{ m} \quad \text{and} \quad a_{\max} = 6.16 \times 10^{11} \text{ m} \]
+        
+        Calculate the orbital period $t_{\text{Encke}}$ of Comet Encke. Express the final answer in SI units.
+    \end{tcolorbox}
+
+    \vspace{0.5em}
+
+    % --- SIDE-BY-SIDE LAYOUT ---
+    \noindent
+    \begin{minipage}[t]{0.49\linewidth}
+        \vspace{0pt}
+        % --- BASE MODEL (LEFT) ---
+        \begin{tcolorbox}[
+            title={\small \textbf{BASE MODEL}},
+            colframe=blue!60!white,
+            colback=blue!5!white,
+            coltitle=white,
+            fontupper=\small\ttfamily\raggedright,
+            boxrule=0.5pt,
+            sharp corners,
+            left=2pt, right=2pt,
+            width=\linewidth,
+            nobeforeafter
+        ]
+            \textbf{\textcolor{blue!60!black}{Step 1:}} Formula\\
+            Use Kepler's Third Law:\\
+            $T^2 = (4\pi^2 / GM) \cdot a^3$
+            \vspace{1em}
+            
+            \textbf{\textcolor{blue!60!black}{Step 2:}} Calculate Semi-major Axis\\
+            $a = (a_{\min} + a_{\max}) / 2$\\
+            $a = (4.95 \times 10^{10} + 6.16 \times 10^{11}) / 2$\\
+            $a = 33.275 \times 10^{10}\text{ m}$
+            \vspace{1em}
+            
+            \textbf{\textcolor{blue!60!black}{Step 3:}} Calculate Period\\
+            Using $\mu = 1.327 \times 10^{20}$:\\
+            $T^2 = (33.275 \times 10^{10})^3 / 1.327 \times 10^{20}$
+            \vspace{0.5em}
+            
+            $T^2 = 3.7074 \times 10^{33} / 1.327 \times 10^{20}$
+            
+            % ERROR HIGHLIGHT
+            \vspace{0.3em}
+            \colorbox{red!15}{\parbox{\linewidth}{\textcolor{red!80!black}{\textbf{ERROR}: Arithmetic. $a^3 \approx 3.7 \times 10^{34}$ (Order of magnitude off).}}}
+            \vspace{0.3em}
+            
+            $T^2 \approx 2.794 \times 10^{13}\text{ s}^2$\\
+            $T \approx 5.285 \times 10^6\text{ s}$\\
+            $T \approx 61.37\text{ days}$
+            \vspace{1em}
+            
+            \textbf{Final Answer:}\\\vspace{1em}
+            \boxed{61.37 \text{ days}} (Incorrect)
+        \end{tcolorbox}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \vspace{0pt}
+        % --- RL-FINETUNED MODEL (RIGHT) ---
+        \begin{tcolorbox}[
+            title={\small \textbf{RL-FINETUNED MODEL}},
+            colframe=green!50!black,
+            colback=green!5!white,
+            coltitle=white,
+            fontupper=\small\ttfamily\raggedright,
+            boxrule=0.5pt,
+            sharp corners,
+            left=2pt, right=2pt,
+            width=\linewidth,
+            nobeforeafter
+        ]
+            \textbf{\textcolor{green!40!black}{Step 1:}} Calculate Semi-major Axis\\
+            $a = (a_{\min} + a_{\max}) / 2$\\
+            $a = (4.95 \times 10^{10} + 61.6 \times 10^{10}) / 2$\\
+            $a = 3.3275 \times 10^{11}\text{ m}$
+            \vspace{1em}
+            
+            \textbf{\textcolor{green!40!black}{Step 2:}} Unit Conversion Strategy\\
+            Convert $a$ to Astronomical Units (AU) to simplify Kepler's Law ($T^2 = a^3$ in years/AU).\\
+            $1\text{ AU} = 1.496 \times 10^{11}\text{ m}$\\
+            $a_{au} = 3.3275 \times 10^{11} / 1.496 \times 10^{11} \approx 2.225\text{ AU}$
+            \vspace{1em}
+            
+            \textbf{\textcolor{green!40!black}{Step 3:}} Apply Kepler's Law\\
+            $T^2 = (2.225)^3 \approx 10.96$\\
+            $T \approx \sqrt{10.96} \approx 3.31\text{ years}$
+            \vspace{1em}
+            
+            \textbf{\textcolor{green!40!black}{Step 4:}} Convert to SI\\
+            $1\text{ year} = 3.154 \times 10^7\text{ seconds}$\\
+            $T = 3.31 \times 3.154 \times 10^7$\\
+            $T \approx 1.04 \times 10^8\text{ seconds}$
+            \vspace{1em}
+            
+            \textbf{Final Answer:}\\\vspace{1em}
+            \boxed{1.04 \times 10^8 \text{ s}} (Correct)
+        \end{tcolorbox}
+    \end{minipage}
+
+\end{tcolorbox}
+\captionof{figure}{\textbf{LLM answers before (left) and after (right) RL finetuning.} Question adapted from IPhO 2013 Question 1 ``The Maribo Meteorite''.}
+    \label{fig:ipho_2013_q1}
+\end{minipage}

@@ -1,0 +1,22 @@
+Step 1: Compute Third Time Derivatives
+We differentiate the quadrupole moments three times.
+Q(t) ~ \frac{1}{2} \cos(2\Omega t)
+
+First deriv:  ~ \frac{1}{2} * (2\Omega) = \Omega
+Second deriv: ~ \Omega * (\Omega) = \Omega^2       <-- ERROR: Failed chain rule (missing factor of 2)
+Third deriv:  ~ \Omega^2 * (2\Omega) = 2\Omega^3
+
+Resulting Coefficient: A = 2
+
+Step 2: Square and Sum
+We square the coefficient found in Step 1.
+Square: A^2 = 2^2 = 4
+
+Summing over the non-zero components (diagonal and off-diagonal contribute equally):
+Sum = 4 (from diagonal) + 4 (from off-diagonal) = 8
+
+Step 3: Apply Formula
+\mathcal{P} = \frac{1}{5} * Sum * (constants)
+\xi = \frac{8}{5} = 1.6
+
+Predicted Answer: [A] 1.6 (Incorrect)

@@ -1,0 +1,28 @@
+scene:
+  name: pulley
+  tag: BasicPulley
+  entities:
+    - name: "fixed_pulley_start"
+      type: "MassWithFixedPulley"
+      position: [0, 0, 0]
+      parameters:
+        mass_type: "Mass"
+        mass_values: [1.5]
+    - name: "mass_prism_plane"
+      type: "MassPrismPlaneEntity"
+      position: [0, 1, 0]
+      parameters:
+        plane_slope: 0
+        prism_left_slope: 30
+        prism_right_slope: 45
+        block_mass_value: 0.3
+        prism_mass_value: 1.0
+        use_left_site: "USE_LEFT"
+        use_prism_left: true
+  connections:
+    - tendon:
+        - entity: "fixed_pulley_start"
+          direction: "inner_to_outer"
+        - entity: "mass_prism_plane"
+          direction: "outer_to_inner"
+          connecting_point: "left"

@@ -1,0 +1,10 @@
+<description>
+A block of mass x is connected to 3 springs (in parallel) each fixed at one end and attached to the block at the other end. The springs are initially inclined at angles of 45, 90 and 180 degrees with the horizontal. The springs have stiffness 50, 50 and 100 N/m.  While their natural lengths are 1, 1 and 1 m, they are initially streched / compressed to be of lengths 1.414, 1 and 2 m.
+</description>
+<question>
+What is the value of x given that the magnitude of the velocity of the block after 2.65 seconds is 4.52?
+</question>
+
+<answer>
+0.1
+</answer>

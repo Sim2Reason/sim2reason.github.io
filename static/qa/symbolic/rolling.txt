@@ -1,0 +1,14 @@
+<description>
+A smooth plane is tilted by θ_1° around its local y-axis relative to the horizontal. A bowl (spherical cap cut from a sphere at arbitrary height (h <= 2r)) sits on it and is then rotated by θ_2° about that same y-axis so its bottom just touches the plane. It has a radius of r_1 m. The cutout plane is at a height of h_1 m from the center. It is placed so its curved surface just touches the plane.
+</description>
+<question>
+What is the linear kinetic energy of the bowl in the system? after t seconds?
+</question>
+
+<answer>
+0.0036627502843854646
+</answer>
+
+<mapping>
+{'θ_1': 0, 'θ_2': 60, 'r_1': 0.27, 'h_1': 0.11}
+</mapping>
